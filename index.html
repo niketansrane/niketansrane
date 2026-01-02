@@ -5,19 +5,26 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Niketan Rane</title>
     <style>
-        /* Ubuntu Theme - Clean & Minimalistic */
+        /* Mono theme variables */
         :root {
-            --ubuntu-orange: #E95420;
-            --ubuntu-dark-orange: #C7441A;
-            --ubuntu-light-orange: #F47D51;
-            --ubuntu-purple: #772953;
-            --ubuntu-warm-grey: #AEA79F;
-            --ubuntu-cool-grey: #333333;
-            --ubuntu-text-grey: #111111;
-            --ubuntu-light-grey: #F7F7F7;
-            --ubuntu-mid-grey: #E5E5E5;
-            --ubuntu-border-grey: #CDCDCD;
-            --ubuntu-white: #FFFFFF;
+            --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --bg-tertiary: #f0f0f0;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #888888;
+            --border: #e0e0e0;
+            --border-strong: #c0c0c0;
+            --accent: #0066cc;
+            --link: #0066cc;
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --radius-sm: 3px;
+            --radius-md: 6px;
         }
         
         * {
@@ -27,68 +34,68 @@
         }
         
         body {
-            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            font-family: var(--font-mono);
             line-height: 1.6;
-            color: var(--ubuntu-text-grey);
-            background-color: var(--ubuntu-white);
-            padding: 20px;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            padding: var(--space-lg);
         }
         
         .container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 20px 20px 40px 20px;
+            padding: var(--space-lg) var(--space-md);
         }
         
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--ubuntu-mid-grey);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border);
         }
         
         .name-section h1 {
-            font-size: 2.5em;
-            font-weight: 500;
-            margin-bottom: 5px;
-            letter-spacing: -0.02em;
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
         }
         
         .name-section h1 a {
-            color: var(--ubuntu-text-grey);
+            color: var(--text-primary);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.15s ease;
         }
         
         .name-section h1 a:hover {
-            color: var(--ubuntu-orange);
+            color: var(--accent);
         }
         
         .subtitle {
-            font-size: 1.1em;
-            color: var(--ubuntu-warm-grey);
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
         }
         
         .contact-links {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 16px;
+            gap: var(--space-md);
         }
         
         .contact-links a {
-            color: var(--ubuntu-cool-grey);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
             display: flex;
             align-items: center;
         }
         
         .contact-links a:hover {
-            color: var(--ubuntu-orange);
+            color: var(--accent);
             transform: translateY(-2px);
         }
         
@@ -98,7 +105,7 @@
         }
         
         .contact-links a[href*="github"] svg {
-            fill: var(--ubuntu-text-grey);
+            fill: var(--text-primary);
         }
         
         .contact-links a[href*="linkedin"] svg {
@@ -114,85 +121,83 @@
         }
         
         .contact-links a[href*="about"] {
-            color: var(--ubuntu-orange);
-            margin-right: 20px;
-            font-weight: 500;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-right: var(--space-sm);
         }
         
         .contact-links a[href*="about"]:hover {
-            color: var(--ubuntu-dark-orange);
+            color: var(--accent);
         }
         
         section {
-            margin-bottom: 60px;
+            margin-bottom: var(--space-xl);
         }
         
         h2 {
-            font-size: 1.8em;
-            font-weight: 400;
-            margin-bottom: 32px;
-            color: var(--ubuntu-text-grey);
-            letter-spacing: -0.01em;
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
         }
         
-        p {
-            color: var(--ubuntu-cool-grey);
-            margin-bottom: 16px;
-            font-size: 1.05em;
-            line-height: 1.7;
+        /* Posts list */
+        .posts-list {
+            display: flex;
+            flex-direction: column;
+            gap: var(--space-md);
         }
         
         .blog-preview {
-            margin-bottom: 32px;
-            padding: 24px;
-            background-color: var(--ubuntu-light-grey);
-            border-radius: 4px;
-            border-left: 4px solid var(--ubuntu-mid-grey);
-            transition: all 0.3s ease;
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: border-color 0.15s ease, background-color 0.15s ease;
         }
         
         .blog-preview:hover {
-            border-left-color: var(--ubuntu-orange);
-            background-color: var(--ubuntu-white);
-            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
-            transform: translateX(4px);
+            border-color: var(--border-strong);
+            background-color: var(--bg-secondary);
         }
         
-        .blog-preview h3 {
-            font-size: 1.3em;
-            font-weight: 400;
-            margin-bottom: 8px;
-        }
-        
-        .blog-preview h3 a {
-            color: var(--ubuntu-text-grey);
+        .blog-preview-link {
+            display: block;
+            padding: var(--space-lg);
             text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        .blog-preview h3 a:hover {
-            color: var(--ubuntu-orange);
         }
         
         .blog-date {
-            color: var(--ubuntu-warm-grey);
-            font-size: 0.9em;
-            margin-bottom: 10px;
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
+            display: block;
+            margin-bottom: var(--space-xs);
+        }
+        
+        .blog-preview h3 {
+            font-family: var(--font-mono);
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--text-primary);
+            margin-bottom: var(--space-sm);
+            line-height: 1.4;
         }
         
         .blog-excerpt {
-            color: var(--ubuntu-cool-grey);
-            font-size: 1em;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
             line-height: 1.6;
         }
         
         footer {
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 2px solid var(--ubuntu-mid-grey);
-            color: var(--ubuntu-warm-grey);
-            font-size: 0.9em;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
             text-align: center;
         }
         
@@ -203,19 +208,23 @@
         
         /* Selection color */
         ::selection {
-            background-color: var(--ubuntu-orange);
-            color: var(--ubuntu-white);
+            background-color: var(--accent);
+            color: var(--bg-primary);
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: var(--space-md);
+            }
+            
             .container {
-                padding: 20px 15px;
+                padding: var(--space-md);
             }
             
             .top-bar {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
+                gap: var(--space-md);
             }
             
             .contact-links {
@@ -223,11 +232,7 @@
             }
             
             .name-section h1 {
-                font-size: 2em;
-            }
-            
-            .blog-preview {
-                padding: 16px;
+                font-size: 20px;
             }
         }
     </style>
@@ -268,27 +273,33 @@
             <h2>Articles</h2>
             
             <div class="blog-preview">
-                <div class="blog-date">October 2025</div>
-                <h3><a href="blogs/teaching-machines-find-right-reviewers.html">Teaching Machines to Find the Right Reviewers</a></h3>
-                <p class="blog-excerpt">
-                    Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context.
-                </p>
+                <a href="blogs/teaching-machines-find-right-reviewers.html" class="blog-preview-link">
+                    <div class="blog-date">October 2025</div>
+                    <h3>Teaching Machines to Find the Right Reviewers</h3>
+                    <p class="blog-excerpt">
+                        Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context.
+                    </p>
+                </a>
             </div>
             
             <div class="blog-preview">
-                <div class="blog-date">September 2025</div>
-                <h3><a href="blogs/understanding-authentication-openid.html">Understanding Authentication: OpenID Connect</a></h3>
-                <p class="blog-excerpt">
-                    Learn how to outsource user authentication to Microsoft using OpenID Connect with practical code examples.
-                </p>
+                <a href="blogs/understanding-authentication-openid.html" class="blog-preview-link">
+                    <div class="blog-date">September 2025</div>
+                    <h3>Understanding Authentication: OpenID Connect</h3>
+                    <p class="blog-excerpt">
+                        Learn how to outsource user authentication to Microsoft using OpenID Connect with practical code examples.
+                    </p>
+                </a>
             </div>
             
             <div class="blog-preview">
-                <div class="blog-date">August 2025</div>
-                <h3><a href="blogs/understanding-authentication-oauth.html">Understanding Authentication: A Simple Dive into OAuth 2.0</a></h3>
-                <p class="blog-excerpt">
-                    Explore how authentication works from basic password-based login to modern, secure methods like OpenID Connect.
-                </p>
+                <a href="blogs/understanding-authentication-oauth.html" class="blog-preview-link">
+                    <div class="blog-date">August 2025</div>
+                    <h3>Understanding Authentication: A Simple Dive into OAuth 2.0</h3>
+                    <p class="blog-excerpt">
+                        Explore how authentication works from basic password-based login to modern, secure methods like OpenID Connect.
+                    </p>
+                </a>
             </div>
         </section>
         

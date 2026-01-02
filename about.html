@@ -4,20 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Niketan Rane</title>
-        <style>
-        /* Ubuntu Theme - Clean & Minimalistic */
+    <style>
+        /* Mono theme variables */
         :root {
-            --ubuntu-orange: #E95420;
-            --ubuntu-dark-orange: #C7441A;
-            --ubuntu-light-orange: #F47D51;
-            --ubuntu-purple: #772953;
-            --ubuntu-warm-grey: #AEA79F;
-            --ubuntu-cool-grey: #333333;
-            --ubuntu-text-grey: #111111;
-            --ubuntu-light-grey: #F7F7F7;
-            --ubuntu-mid-grey: #E5E5E5;
-            --ubuntu-border-grey: #CDCDCD;
-            --ubuntu-white: #FFFFFF;
+            --font-mono: 'SF Mono', 'Monaco', 'Inconsolata', 'Fira Mono', 'Droid Sans Mono', 'Source Code Pro', monospace;
+            --bg-primary: #ffffff;
+            --bg-secondary: #f8f8f8;
+            --bg-tertiary: #f0f0f0;
+            --text-primary: #1a1a1a;
+            --text-secondary: #4a4a4a;
+            --text-muted: #888888;
+            --border: #e0e0e0;
+            --border-strong: #c0c0c0;
+            --accent: #0066cc;
+            --link: #0066cc;
+            --space-xs: 4px;
+            --space-sm: 8px;
+            --space-md: 16px;
+            --space-lg: 24px;
+            --space-xl: 32px;
+            --radius-sm: 3px;
+            --radius-md: 6px;
         }
         
         * {
@@ -27,68 +34,68 @@
         }
         
         body {
-            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            font-family: var(--font-mono);
             line-height: 1.6;
-            color: var(--ubuntu-text-grey);
-            background-color: var(--ubuntu-white);
-            padding: 20px;
+            color: var(--text-primary);
+            background-color: var(--bg-primary);
+            padding: var(--space-lg);
         }
         
         .container {
             max-width: 720px;
             margin: 0 auto;
-            padding: 20px 20px 40px 20px;
+            padding: var(--space-lg) var(--space-md);
         }
         
         .top-bar {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            margin-bottom: 60px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--ubuntu-mid-grey);
+            margin-bottom: var(--space-xl);
+            padding-bottom: var(--space-lg);
+            border-bottom: 1px solid var(--border);
         }
         
         .name-section h1 {
-            font-size: 2.5em;
-            font-weight: 400;
-            margin-bottom: 5px;
-            letter-spacing: -0.02em;
+            font-family: var(--font-mono);
+            font-size: 24px;
+            font-weight: 600;
+            margin-bottom: var(--space-xs);
         }
         
         .name-section h1 a {
-            color: var(--ubuntu-orange);
+            color: var(--text-primary);
             text-decoration: none;
-            transition: color 0.2s ease;
+            transition: color 0.15s ease;
         }
         
         .name-section h1 a:hover {
-            color: var(--ubuntu-dark-orange);
+            color: var(--accent);
         }
         
         .subtitle {
-            font-size: 1.1em;
-            color: var(--ubuntu-warm-grey);
-            font-weight: 400;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
         }
         
         .contact-links {
             display: flex;
             flex-direction: row;
             align-items: center;
-            gap: 16px;
+            gap: var(--space-md);
         }
         
         .contact-links a {
-            color: var(--ubuntu-warm-grey);
+            color: var(--text-secondary);
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: all 0.15s ease;
             display: flex;
             align-items: center;
         }
         
         .contact-links a:hover {
-            color: var(--ubuntu-text-grey);
+            color: var(--accent);
             transform: translateY(-2px);
         }
         
@@ -98,7 +105,7 @@
         }
         
         .contact-links a[href*="github"] svg {
-            fill: var(--ubuntu-text-grey);
+            fill: var(--text-primary);
         }
         
         .contact-links a[href*="linkedin"] svg {
@@ -114,122 +121,136 @@
         }
         
         .contact-links a[href*="index"] {
-            color: var(--ubuntu-orange);
-            margin-right: 20px;
-            font-weight: 500;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-secondary);
+            margin-right: var(--space-sm);
         }
         
         .contact-links a[href*="index"]:hover {
-            color: var(--ubuntu-dark-orange);
+            color: var(--accent);
         }
         
         .about-content {
-            margin-bottom: 60px;
+            margin-bottom: var(--space-xl);
         }
         
         h2 {
-            font-size: 2em;
-            font-weight: 400;
-            margin-bottom: 30px;
-            color: var(--ubuntu-dark-orange);
-            letter-spacing: -0.02em;
+            font-family: var(--font-mono);
+            font-size: 20px;
+            font-weight: 600;
+            margin-bottom: var(--space-lg);
+            color: var(--text-primary);
         }
         
         h3 {
-            font-size: 1.4em;
-            font-weight: 400;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: var(--ubuntu-orange);
+            font-family: var(--font-mono);
+            font-size: 17px;
+            font-weight: 600;
+            margin-top: var(--space-xl);
+            margin-bottom: var(--space-md);
+            color: var(--text-primary);
         }
         
         p {
-            color: var(--ubuntu-cool-grey);
-            margin-bottom: 20px;
-            font-size: 1.1em;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-md);
             line-height: 1.7;
         }
         
         a {
-            color: var(--ubuntu-orange);
-            text-decoration: none;
-            transition: color 0.2s ease;
+            color: var(--link);
+            text-decoration: underline;
+            text-underline-offset: 2px;
+            transition: color 0.15s ease;
         }
         
         a:hover {
-            color: var(--ubuntu-light-orange);
+            color: var(--accent);
         }
         
         ul {
-            margin: 20px 0;
-            padding-left: 24px;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            margin: var(--space-md) 0;
+            padding-left: var(--space-lg);
         }
         
         li {
-            color: var(--ubuntu-cool-grey);
-            font-size: 1.05em;
-            margin-bottom: 12px;
+            color: var(--text-secondary);
+            margin-bottom: var(--space-sm);
             line-height: 1.7;
         }
         
         .experience-item {
-            margin-bottom: 32px;
-            padding: 20px;
-            background-color: var(--ubuntu-light-grey);
-            border-radius: 4px;
-            border-left: 4px solid var(--ubuntu-mid-grey);
-            transition: all 0.3s ease;
+            margin-bottom: var(--space-lg);
+            padding: var(--space-lg);
+            border: 1px solid var(--border);
+            border-radius: var(--radius-md);
+            transition: border-color 0.15s ease, background-color 0.15s ease;
         }
         
         .experience-item:hover {
-            border-left-color: var(--ubuntu-orange);
-            background-color: var(--ubuntu-mid-grey);
+            border-color: var(--border-strong);
+            background-color: var(--bg-secondary);
         }
         
         .item-header {
             display: flex;
             justify-content: space-between;
             align-items: baseline;
-            margin-bottom: 8px;
+            margin-bottom: var(--space-xs);
             flex-wrap: wrap;
         }
         
         .item-title {
-            font-size: 1.15em;
-            font-weight: 400;
-            color: var(--ubuntu-text-grey);
+            font-family: var(--font-mono);
+            font-size: 15px;
+            font-weight: 600;
+            color: var(--text-primary);
         }
         
         .item-date {
-            color: var(--ubuntu-warm-grey);
-            font-size: 0.9em;
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
         }
         
         .item-subtitle {
-            color: var(--ubuntu-warm-grey);
-            font-size: 1em;
-            margin-bottom: 8px;
+            font-family: var(--font-mono);
+            font-size: 13px;
+            color: var(--text-muted);
+            margin-bottom: var(--space-sm);
         }
         
         .item-description {
-            color: var(--ubuntu-cool-grey);
-            font-size: 1em;
+            font-family: var(--font-mono);
+            font-size: 14px;
+            color: var(--text-secondary);
             line-height: 1.6;
+            margin-bottom: var(--space-sm);
+        }
+        
+        .item-description:last-child {
+            margin-bottom: 0;
         }
         
         footer {
-            margin-top: 80px;
-            padding-top: 30px;
-            border-top: 2px solid var(--ubuntu-mid-grey);
-            color: var(--ubuntu-warm-grey);
-            font-size: 0.9em;
+            margin-top: var(--space-xl);
+            padding-top: var(--space-lg);
+            border-top: 1px solid var(--border);
+            font-family: var(--font-mono);
+            font-size: 12px;
+            color: var(--text-muted);
             text-align: center;
         }
         
         /* Selection color */
         ::selection {
-            background-color: var(--ubuntu-orange);
-            color: var(--ubuntu-orange);
+            background-color: var(--accent);
+            color: var(--bg-primary);
         }
         
         /* Smooth scrolling */
@@ -238,14 +259,18 @@
         }
         
         @media (max-width: 768px) {
+            body {
+                padding: var(--space-md);
+            }
+            
             .container {
-                padding: 20px 15px;
+                padding: var(--space-md);
             }
             
             .top-bar {
                 flex-direction: column;
                 align-items: flex-start;
-                gap: 20px;
+                gap: var(--space-md);
             }
             
             .contact-links {
@@ -253,11 +278,11 @@
             }
             
             .name-section h1 {
-                font-size: 2em;
+                font-size: 20px;
             }
             
             h2 {
-                font-size: 1.6em;
+                font-size: 18px;
             }
         }
     </style>
@@ -270,7 +295,7 @@
                 <p class="subtitle">Software Engineer & Builder</p>
             </div>
             <div class="contact-links">
-                <a href="index.html" style="color: #1a1a1a; margin-right: 20px;">← Home</a>
+                <a href="index.html">← Home</a>
                 <a href="https://github.com/niketansrane" target="_blank" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
