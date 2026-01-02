@@ -4,22 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>About - Niketan Rane</title>
-        <style>
-        /* Ubuntu Theme - Clean & Minimalistic */
-        :root {
-            --ubuntu-orange: #E95420;
-            --ubuntu-dark-orange: #C7441A;
-            --ubuntu-light-orange: #F47D51;
-            --ubuntu-purple: #772953;
-            --ubuntu-warm-grey: #AEA79F;
-            --ubuntu-cool-grey: #333333;
-            --ubuntu-text-grey: #111111;
-            --ubuntu-light-grey: #F7F7F7;
-            --ubuntu-mid-grey: #E5E5E5;
-            --ubuntu-border-grey: #CDCDCD;
-            --ubuntu-white: #FFFFFF;
-        }
-        
+    <style>
         * {
             margin: 0;
             padding: 0;
@@ -27,10 +12,10 @@
         }
         
         body {
-            font-family: 'Ubuntu', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', sans-serif;
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
             line-height: 1.6;
-            color: var(--ubuntu-text-grey);
-            background-color: var(--ubuntu-white);
+            color: #1a1a1a;
+            background-color: #ffffff;
             padding: 20px;
         }
         
@@ -45,30 +30,27 @@
             justify-content: space-between;
             align-items: center;
             margin-bottom: 60px;
-            padding-bottom: 20px;
-            border-bottom: 2px solid var(--ubuntu-mid-grey);
         }
         
         .name-section h1 {
             font-size: 2.5em;
-            font-weight: 400;
+            font-weight: 600;
             margin-bottom: 5px;
             letter-spacing: -0.02em;
         }
         
         .name-section h1 a {
-            color: var(--ubuntu-orange);
+            color: #1a1a1a;
             text-decoration: none;
-            transition: color 0.2s ease;
         }
         
         .name-section h1 a:hover {
-            color: var(--ubuntu-dark-orange);
+            color: #0066cc;
         }
         
         .subtitle {
             font-size: 1.1em;
-            color: var(--ubuntu-warm-grey);
+            color: #666;
             font-weight: 400;
         }
         
@@ -80,16 +62,15 @@
         }
         
         .contact-links a {
-            color: var(--ubuntu-warm-grey);
+            color: #666;
             text-decoration: none;
-            transition: all 0.2s ease;
+            transition: opacity 0.2s;
             display: flex;
             align-items: center;
         }
         
         .contact-links a:hover {
-            color: var(--ubuntu-text-grey);
-            transform: translateY(-2px);
+            opacity: 0.7;
         }
         
         .contact-links svg {
@@ -98,29 +79,37 @@
         }
         
         .contact-links a[href*="github"] svg {
-            fill: var(--ubuntu-text-grey);
+            fill: #181717;
         }
         
         .contact-links a[href*="linkedin"] svg {
-            fill: var(#0077B5);
+            fill: #0A66C2;
         }
         
         .contact-links a[href*="twitter"] svg {
-            fill: var(--ubuntu-light-orange);
+            fill: #000000;
         }
         
         .contact-links a[href*="mailto"] svg path {
-            fill: var(#EA4335);
+            fill: #EA4335;
         }
         
-        .contact-links a[href*="index"] {
-            color: var(--ubuntu-orange);
-            margin-right: 20px;
-            font-weight: 500;
+        nav {
+            margin: 0 0 50px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
         }
         
-        .contact-links a[href*="index"]:hover {
-            color: var(--ubuntu-dark-orange);
+        nav a {
+            color: #666;
+            text-decoration: none;
+            margin-right: 24px;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #1a1a1a;
         }
         
         .about-content {
@@ -129,35 +118,25 @@
         
         h2 {
             font-size: 2em;
-            font-weight: 400;
+            font-weight: 600;
             margin-bottom: 30px;
-            color: var(--ubuntu-dark-orange);
+            color: #1a1a1a;
             letter-spacing: -0.02em;
         }
         
-        h3 {
-            font-size: 1.4em;
-            font-weight: 400;
-            margin-top: 40px;
-            margin-bottom: 16px;
-            color: var(--ubuntu-orange);
-        }
-        
         p {
-            color: var(--ubuntu-cool-grey);
+            color: #444;
             margin-bottom: 20px;
             font-size: 1.1em;
             line-height: 1.7;
         }
         
-        a {
-            color: var(--ubuntu-orange);
-            text-decoration: none;
-            transition: color 0.2s ease;
-        }
-        
-        a:hover {
-            color: var(--ubuntu-light-orange);
+        h3 {
+            font-size: 1.4em;
+            font-weight: 600;
+            margin-top: 40px;
+            margin-bottom: 16px;
+            color: #1a1a1a;
         }
         
         ul {
@@ -166,7 +145,7 @@
         }
         
         li {
-            color: var(--ubuntu-cool-grey);
+            color: #444;
             font-size: 1.05em;
             margin-bottom: 12px;
             line-height: 1.7;
@@ -174,16 +153,12 @@
         
         .experience-item {
             margin-bottom: 32px;
-            padding: 20px;
-            background-color: var(--ubuntu-light-grey);
-            border-radius: 4px;
-            border-left: 4px solid var(--ubuntu-mid-grey);
-            transition: all 0.3s ease;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f0f0;
         }
         
-        .experience-item:hover {
-            border-left-color: var(--ubuntu-orange);
-            background-color: var(--ubuntu-mid-grey);
+        .experience-item:last-child {
+            border-bottom: none;
         }
         
         .item-header {
@@ -196,23 +171,23 @@
         
         .item-title {
             font-size: 1.15em;
-            font-weight: 400;
-            color: var(--ubuntu-text-grey);
+            font-weight: 600;
+            color: #1a1a1a;
         }
         
         .item-date {
-            color: var(--ubuntu-warm-grey);
+            color: #888;
             font-size: 0.9em;
         }
         
         .item-subtitle {
-            color: var(--ubuntu-warm-grey);
+            color: #666;
             font-size: 1em;
             margin-bottom: 8px;
         }
         
         .item-description {
-            color: var(--ubuntu-cool-grey);
+            color: #555;
             font-size: 1em;
             line-height: 1.6;
         }
@@ -220,21 +195,9 @@
         footer {
             margin-top: 80px;
             padding-top: 30px;
-            border-top: 2px solid var(--ubuntu-mid-grey);
-            color: var(--ubuntu-warm-grey);
+            border-top: 1px solid #e5e5e5;
+            color: #888;
             font-size: 0.9em;
-            text-align: center;
-        }
-        
-        /* Selection color */
-        ::selection {
-            background-color: var(--ubuntu-orange);
-            color: var(--ubuntu-orange);
-        }
-        
-        /* Smooth scrolling */
-        html {
-            scroll-behavior: smooth;
         }
         
         @media (max-width: 768px) {
@@ -258,6 +221,10 @@
             
             h2 {
                 font-size: 1.6em;
+            }
+            
+            nav a {
+                margin-right: 16px;
             }
         }
     </style>
@@ -436,6 +403,3 @@
     </div>
 </body>
 </html>
-
-
-
