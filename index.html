@@ -40,6 +40,24 @@
             font-size: 1.1em;
             color: #666;
             font-weight: 400;
+            margin-bottom: 20px;
+        }
+        
+        .social-links {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+        }
+        
+        .social-links a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95em;
+            transition: color 0.2s;
+        }
+        
+        .social-links a:hover {
+            color: #0066cc;
         }
         
         nav {
@@ -61,13 +79,13 @@
         }
         
         section {
-            margin-bottom: 50px;
+            margin-bottom: 60px;
         }
         
         h2 {
             font-size: 1.5em;
             font-weight: 600;
-            margin-bottom: 20px;
+            margin-bottom: 24px;
             color: #1a1a1a;
             letter-spacing: -0.01em;
         }
@@ -76,27 +94,74 @@
             color: #444;
             margin-bottom: 16px;
             font-size: 1.05em;
+            line-height: 1.7;
         }
         
         ul {
             list-style: none;
-            margin-bottom: 20px;
         }
         
-        ul li {
-            margin-bottom: 12px;
-            color: #444;
-            font-size: 1.05em;
+        .experience-item, .project-item {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f0f0;
         }
         
-        a {
+        .experience-item:last-child, .project-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        .item-description {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
+        .project-link {
             color: #0066cc;
-            text-decoration: none;
-            transition: color 0.2s;
+            font-size: 0.95em;
+            margin-top: 8px;
+            display: inline-block;
         }
         
-        a:hover {
-            color: #004499;
+        .skills-list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 10px;
+        }
+        
+        .skill-tag {
+            background-color: #f5f5f5;
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-size: 0.9em;
+            color: #555;
         }
         
         .blog-preview {
@@ -162,6 +227,10 @@
             nav a {
                 margin-right: 16px;
             }
+            
+            .item-header {
+                flex-direction: column;
+            }
         }
     </style>
 </head>
@@ -170,20 +239,91 @@
         <header>
             <h1>Niketan Rane</h1>
             <p class="subtitle">Software Engineer & Builder</p>
+            <div class="social-links">
+                <a href="https://github.com/niketansrane" target="_blank">GitHub</a>
+                <a href="https://linkedin.com/in/niketansrane" target="_blank">LinkedIn</a>
+                <a href="https://twitter.com/niketansrane" target="_blank">Twitter</a>
+                <a href="mailto:niketan.iiita@gmail.com">Email</a>
+            </div>
         </header>
         
         <nav>
-            <a href="index.html">Home</a>
+            <a href="#about">About</a>
+            <a href="#experience">Experience</a>
+            <a href="#projects">Projects</a>
             <a href="blogs/index.html">Blog</a>
-            <a href="#contact">Contact</a>
         </nav>
         
-        <section>
+        <section id="about">
             <h2>About</h2>
             <p>
-                Hello! I'm Niketan. I work on interesting problems and enjoy building things. 
-                This is my corner of the internet where I share my thoughts, projects, and learnings.
+                Hello! I'm Niketan, a software engineer passionate about building products and solving 
+                interesting problems. I enjoy working with modern technologies and learning new things.
             </p>
+            <p>
+                Currently working at Microsoft, I focus on developing scalable solutions and improving 
+                user experiences. In my free time, I write about technology, contribute to open source, 
+                and explore new tools and frameworks.
+            </p>
+        </section>
+        
+        <section id="experience">
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer</div>
+                    <div class="item-date">2023 - Present</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    Working on cloud-based solutions and distributed systems. Focused on building scalable 
+                    applications and improving system performance.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Developer Intern</div>
+                    <div class="item-date">2022 - 2023</div>
+                </div>
+                <div class="item-subtitle">Tech Company</div>
+                <p class="item-description">
+                    Developed features for web applications and collaborated with cross-functional teams 
+                    to deliver high-quality software solutions.
+                </p>
+            </div>
+        </section>
+        
+        <section id="projects">
+            <h2>Projects</h2>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <div class="item-title">Personal Website</div>
+                    <div class="item-date">2025</div>
+                </div>
+                <p class="item-description">
+                    Built this personal website from scratch to learn HTML, CSS, and web development fundamentals. 
+                    Features a clean, minimalist design with blog functionality.
+                </p>
+                <div class="skills-list">
+                    <span class="skill-tag">HTML</span>
+                    <span class="skill-tag">CSS</span>
+                    <span class="skill-tag">JavaScript</span>
+                </div>
+            </div>
+            
+            <div class="project-item">
+                <div class="item-header">
+                    <div class="item-title">Your Next Project</div>
+                    <div class="item-date">Coming Soon</div>
+                </div>
+                <p class="item-description">
+                    Add your next project here! This could be a side project, open source contribution, 
+                    or any other work you'd like to showcase.
+                </p>
+            </div>
         </section>
         
         <section>
@@ -208,17 +348,6 @@
             </div>
             
             <a href="blogs/index.html" class="view-all">View all posts →</a>
-        </section>
-        
-        <section id="contact">
-            <h2>Contact</h2>
-            <p>
-                Feel free to reach out:
-            </p>
-            <ul>
-                <li>Email: <a href="mailto:niketan.iiita@gmail.com">niketan.iiita@gmail.com</a></li>
-                <li>GitHub: <a href="https://github.com/niketansrane" target="_blank">@niketansrane</a></li>
-            </ul>
         </section>
         
         <footer>
