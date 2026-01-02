@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Authentication: A Simple Dive into OAuth 2.0 - Niketan Rane</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <style>
         * {
             margin: 0;
@@ -314,7 +315,7 @@
 
             <p>Implementation in Python using the bcrypt library.</p>
 
-            <pre><code>import bcrypt
+            <pre><code class="language-python">import bcrypt
 
 def hash_password(password: str) -> bytes:
     """
@@ -363,5 +364,7 @@ print(verify_password("idonotlovebooks", hashed_pwd)) # outputs => False</code><
             
         </article>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>

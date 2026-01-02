@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Understanding Authentication: OpenID Connect - Niketan Rane</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-tomorrow.min.css">
     <style>
         * {
             margin: 0;
@@ -304,7 +305,7 @@
 
             <p>Here is how the request will look like.</p>
 
-            <pre><code>https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+            <pre><code class="language-http">https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
 response_type=code
 &client_id=XXX87a4-b7bd-45f2-a53b-b3d537d3XXX
 &redirect_uri=https://auth101.azurewebsites.net/callback
@@ -316,7 +317,7 @@ response_type=code
 
             <p>All of this can be written in our web server with few lines of code.</p>
 
-            <pre><code>from oauthlib.oauth2 import WebApplicationClient
+            <pre><code class="language-python">from oauthlib.oauth2 import WebApplicationClient
 
 AUTH_ENDPOINT="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
 REDIRECT_URI="https://auth101.azurewebsites.net/callback"
@@ -339,7 +340,7 @@ def read_login():
 
             <p>The request will look like:</p>
 
-            <pre><code>grant_type=authorization_code
+            <pre><code class="language-http">grant_type=authorization_code
 &client_id=XXX87a4-b7bd-45f2-a53b-b3d537d3XXX
 &client_secret="dsfd*****"
 &code=1.ARoAh...
@@ -349,7 +350,7 @@ def read_login():
 
             <p>Implementation:</p>
 
-            <pre><code>from oauthlib.oauth2 import WebApplicationClient
+            <pre><code class="language-python">from oauthlib.oauth2 import WebApplicationClient
 
 TOKEN_URL="https://login.microsoftonline.com/common/oauth2/v2.0/authorize/oauth2/v2.0/token"
 REDIRECT_URI="https://auth101.azurewebsites.net/callback"
@@ -374,7 +375,7 @@ def callback(code: str):
 
             <p>Now that the web application has user information, it can set a cookie so that subsequent requests for the session can use the same token and need not do perform all those flows again for next X minutes.</p>
 
-            <pre><code>code for callback endpoint from above ...
+            <pre><code class="language-python">code for callback endpoint from above ...
 ....
 
     decoded = jwt.decode(token, options={"verify_signature": False})
@@ -389,7 +390,7 @@ def callback(code: str):
 
             <p>If the cookie is present, we let Niketan in. He sees the books page personalized with his name and a book list.</p>
 
-            <pre><code>@app.get("/books", response_class=HTMLResponse)
+            <pre><code class="language-python">@app.get("/books", response_class=HTMLResponse)
 def books(request: Request):
     username = request.cookies.get("username")
     if not username:
@@ -405,5 +406,7 @@ def books(request: Request):
             
         </article>
     </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-python.min.js"></script>
 </body>
 </html>
