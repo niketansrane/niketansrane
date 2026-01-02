@@ -127,6 +127,47 @@
             line-height: 1.7;
         }
         
+        .experience-item {
+            margin-bottom: 32px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+        
+        .experience-item:last-child {
+            border-bottom: none;
+        }
+        
+        .item-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            margin-bottom: 8px;
+            flex-wrap: wrap;
+        }
+        
+        .item-title {
+            font-size: 1.15em;
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        .item-date {
+            color: #888;
+            font-size: 0.9em;
+        }
+        
+        .item-subtitle {
+            color: #666;
+            font-size: 1em;
+            margin-bottom: 8px;
+        }
+        
+        .item-description {
+            color: #555;
+            font-size: 1em;
+            line-height: 1.6;
+        }
+        
         footer {
             margin-top: 80px;
             padding-top: 30px;
@@ -195,13 +236,6 @@
             </div>
         </div>
         
-        <nav>
-            <a href="index.html">Home</a>
-            <a href="about.html">About</a>
-            <a href="index.html#experience">Experience</a>
-            <a href="blogs/index.html">Blogs</a>
-        </nav>
-        
         <div class="about-content">
             <h2>About Me</h2>
             
@@ -242,6 +276,41 @@
             <p>
                 If you want to talk DevEx, system design, AI for developer workflows, Cricket or just about food and travel, I'm always up for a good chat.
             </p>
+            
+            <h2>Experience</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer 2</div>
+                    <div class="item-date">Jan 2024 - Present</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    Working on Developer Productivity tools and AI-powered automation. Building systems that help thousands of developers ship features faster through intelligent code review recommendations, automated workflows, and developer agents.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer</div>
+                    <div class="item-date">Aug 2022 - Jan 2024</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    Developed scalable solutions for developer productivity, focusing on automation, OAuth 2.0 integrations, and Azure-based infrastructure. Built machine learning models for intelligent reviewer recommendations.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineering Intern</div>
+                    <div class="item-date">May 2021 - Jul 2021</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    Contributed to cloud-based solutions and gained experience with distributed systems, Azure services, and enterprise-scale development practices.
+                </p>
+            </div>
         </div>
         
         <footer>
