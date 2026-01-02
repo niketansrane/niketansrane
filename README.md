@@ -20,8 +20,8 @@ I'm a software engineer at Microsoft, building AI-powered developer productivity
 - [Understanding Authentication: A Simple Approach](https://niketansrane.com/blogs/understanding-authentication-simple.html) - From passwords to federated auth
 
 🌐 **Find Me**
-- 🔗 Website: [niketansrane.com](https://niketansrane.com)
-- 💼 LinkedIn: [linkedin.com/in/niketansrane](https://linkedin.com/in/niketansrane)
+- 🔗 Website: [about.niketansrane.com](https://about.niketansrane.com)
+- 💼 LinkedIn: [linkedin.com/in/niketanrane](https://linkedin.com/in/niketanrane)
 - 🐦 Twitter: [@niketansrane](https://twitter.com/niketansrane)
 - 📧 Email: niketan.iiita@gmail.com
 
@@ -31,7 +31,7 @@ I'm a software engineer at Microsoft, building AI-powered developer productivity
 
 This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
 
-**Live at**: [niketansrane.com](https://niketansrane.com) (custom domain via GitHub Pages)
+**Live at**: [about.niketansrane.com](https://about.niketansrane.com) (custom domain via GitHub Pages)
 
 Built with vanilla HTML/CSS as a learning exercise. No frameworks, no build process—just clean, semantic markup and thoughtful design.
 
