@@ -39,6 +39,15 @@
             letter-spacing: -0.02em;
         }
         
+        .name-section h1 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .name-section h1 a:hover {
+            color: #0066cc;
+        }
+        
         .subtitle {
             font-size: 1.1em;
             color: #666;
@@ -55,19 +64,34 @@
         .contact-links a {
             color: #666;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: opacity 0.2s;
             display: flex;
             align-items: center;
         }
         
         .contact-links a:hover {
-            color: #0066cc;
+            opacity: 0.7;
         }
         
         .contact-links svg {
             width: 20px;
             height: 20px;
-            fill: currentColor;
+        }
+        
+        .contact-links a[href*="github"] svg {
+            fill: #181717;
+        }
+        
+        .contact-links a[href*="linkedin"] svg {
+            fill: #0A66C2;
+        }
+        
+        .contact-links a[href*="twitter"] svg {
+            fill: #000000;
+        }
+        
+        .contact-links a[href*="mailto"] svg {
+            fill: #666666;
         }
         
         nav {
@@ -255,7 +279,7 @@
     <div class="container">
         <div class="top-bar">
             <div class="name-section">
-                <h1>Niketan Rane</h1>
+                <h1><a href="index.html">Niketan Rane</a></h1>
                 <p class="subtitle">Software Engineer & Builder</p>
             </div>
             <div class="contact-links">

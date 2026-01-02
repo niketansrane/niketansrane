@@ -39,6 +39,15 @@
             letter-spacing: -0.02em;
         }
         
+        .name-section h1 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .name-section h1 a:hover {
+            color: #0066cc;
+        }
+        
         .subtitle {
             font-size: 1.1em;
             color: #666;
@@ -55,19 +64,34 @@
         .contact-links a {
             color: #666;
             text-decoration: none;
-            transition: color 0.2s;
+            transition: opacity 0.2s;
             display: flex;
             align-items: center;
         }
         
         .contact-links a:hover {
-            color: #0066cc;
+            opacity: 0.7;
         }
         
         .contact-links svg {
             width: 20px;
             height: 20px;
-            fill: currentColor;
+        }
+        
+        .contact-links a[href*="github"] svg {
+            fill: #181717;
+        }
+        
+        .contact-links a[href*="linkedin"] svg {
+            fill: #0A66C2;
+        }
+        
+        .contact-links a[href*="twitter"] svg {
+            fill: #000000;
+        }
+        
+        .contact-links a[href*="mailto"] svg {
+            fill: #666666;
         }
         
         nav {
@@ -209,10 +233,11 @@
     <div class="container">
         <div class="top-bar">
             <div class="name-section">
-                <h1>Niketan Rane</h1>
+                <h1><a href="index.html">Niketan Rane</a></h1>
                 <p class="subtitle">Software Engineer & Builder</p>
             </div>
             <div class="contact-links">
+                <a href="index.html" style="color: #1a1a1a; margin-right: 20px;">← Home</a>
                 <a href="https://github.com/niketansrane" target="_blank" aria-label="GitHub">
                     <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
                         <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
@@ -281,45 +306,93 @@
             
             <div class="experience-item">
                 <div class="item-header">
-                    <div class="item-title">Software Engineer 2</div>
-                    <div class="item-date">Jan 2024 - Present</div>
+                    <div class="item-title">Senior Software Engineer</div>
+                    <div class="item-date">September 2025 - Present</div>
                 </div>
                 <div class="item-subtitle">Microsoft</div>
                 <p class="item-description">
-                    Working on Developer Productivity tools and AI-powered automation. Building systems that help thousands of developers ship features faster through intelligent code review recommendations, automated workflows, and developer agents.
+                    I architected the Microsoft Developer Agent, a conversational AI system that lives in Teams and automates the entire pull request lifecycle. It's powered by GPT-4 and Azure OpenAI, and it handles everything from proactive notifications to intelligent code reviews based on historical reviewer feedback patterns. The system was featured at Microsoft Build 2025 for breakthrough innovation in developer productivity.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer - 2</div>
+                    <div class="item-date">April 2023 - August 2025</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    I built a comprehensive PR velocity ecosystem that serves 2,000+ developers across 250+ global reviewer groups, processing 300+ daily pull requests. The system has an event-driven C# backend with Cosmos DB and a Semantic Kernel AI assistant that actually understands context.
+                </p>
+                <p class="item-description">
+                    I engineered a traditional ML-based reviewer assignment system with load balancing across geo-distributed teams, and scaled what started as a hackathon prototype into production - cutting PR turnaround by 12% (from 198 to 173 hours).
+                </p>
+                <p class="item-description">
+                    I also implemented a proactive notification system through a Teams Bot that delivers contextual alerts: build failures, merge-ready status, release tracking, author-waiting notifications, plus batch breach alerts to keep reviewer engagement high.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Software Engineer - 2</div>
+                    <div class="item-date">July 2021 - March 2023</div>
+                </div>
+                <div class="item-subtitle">Microsoft</div>
+                <p class="item-description">
+                    I developed a dual-dashboard analytics platform. The review dashboard helps reviewers track pending first reviews versus approval-ready PRs. The metrics dashboard shows team performance percentiles, breach tracking against a 36-hour SLA, and first response time analytics.
+                </p>
+                <p class="item-description">
+                    I also designed a Teams Nudge system that lets PR authors tag reviewer group champions through automated Teams posts with @mentions, integrated with a DRAFT-first workflow to ensure only review-ready code gets submitted.
+                </p>
+                <p class="item-description">
+                    On the infrastructure side, I redesigned the monitoring architecture for MS Teams by implementing aggregate-level metrics and a custom alerting platform. This eliminated 70% of false alarms - dropping them from 85% to 15% - and improved incident detection time.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Senior Software Engineer</div>
+                    <div class="item-date">December 2020 - June 2021</div>
+                </div>
+                <div class="item-subtitle">Qualcomm</div>
+                <p class="item-description">
+                    I designed a Bluetooth address management platform that solved device interference problems in testing environments by preventing address conflicts between nearby devices. The system served the entire Bluetooth division at Qualcomm. I was awarded Qualstar recognition for eliminating manual address blocking processes and delivering faster testing workflows.
                 </p>
             </div>
             
             <div class="experience-item">
                 <div class="item-header">
                     <div class="item-title">Software Engineer</div>
-                    <div class="item-date">Aug 2022 - Jan 2024</div>
-                </div>
-                <div class="item-subtitle">Microsoft</div>
-                <p class="item-description">
-                    Developed scalable solutions for developer productivity, focusing on automation, OAuth 2.0 integrations, and Azure-based infrastructure. Built machine learning models for intelligent reviewer recommendations.
-                </p>
-            </div>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">Software Engineering Intern</div>
-                    <div class="item-date">May 2021 - Jul 2021</div>
-                </div>
-                <div class="item-subtitle">Microsoft</div>
-                <p class="item-description">
-                    Contributed to cloud-based solutions and gained experience with distributed systems, Azure services, and enterprise-scale development practices.
-                </p>
-            </div>
-            
-            <div class="experience-item">
-                <div class="item-header">
-                    <div class="item-title">Software Engineering Intern</div>
-                    <div class="item-date">May 2020 - Jul 2020</div>
+                    <div class="item-date">December 2018 - November 2020</div>
                 </div>
                 <div class="item-subtitle">Qualcomm</div>
                 <p class="item-description">
-                    Worked on embedded systems and wireless technologies. Gained experience with hardware-software integration and performance optimization.
+                    I built and scaled test optimization solutions through smart grouping and intelligent clustering algorithms, cutting redundant runtime by around 34%.
+                    I also led a cross-functional vendor team to scale a 3G device log parser for expanded scenarios, improving regression detection accuracy from 63% to 85% through automated checkpoint implementation.
+                </p>
+            </div>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Associate Software Engineer</div>
+                    <div class="item-date">July 2017 - November 2018</div>
+                </div>
+                <div class="item-subtitle">Qualcomm</div>
+                <p class="item-description">
+                    I built an automated 3G device log parser for regression identification, reducing manual analysis by 34%.
+                </p>
+            </div>
+            
+            <h2>Education</h2>
+            
+            <div class="experience-item">
+                <div class="item-header">
+                    <div class="item-title">Bachelor of Technology</div>
+                    <div class="item-date">2013 - 2017</div>
+                </div>
+                <div class="item-subtitle">Indian Institute of Information Technology, Allahabad</div>
+                <p class="item-description">
+                    Electronics and Communication Engineering (CGPA: 8.92/10.0)
                 </p>
             </div>
         </div>
