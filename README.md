@@ -1,103 +1,48 @@
-# Niketan Rane's Personal Website
+# Hi, I'm Niketan 👋
 
-This is my personal website built from scratch as I learn HTML and CSS.
+I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help thousands of developers ship faster. I love solving real workflow problems at scale—the kind where manual processes eat up hours and people drown in notifications they don't need.
 
-🌐 **Live Site**: Will be available at `https://niketansrane.github.io/niketansrane` once deployed
+🚀 **What I Do**
+- Built the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/)—a conversational AI system powered by GPT-4 that automates the entire pull request lifecycle
+- Designed ML-based reviewer assignment systems that process 300+ daily PRs across 250+ global teams
+- Created event-driven notification systems and analytics platforms that reduced false alarms by 70%
 
-## Project Structure
+💻 **Tech Stack**
+- Python, C#, Django, FastAPI
+- Azure (Cosmos DB, OpenAI, Active Directory)
+- OAuth 2.0, OpenID Connect
+- Machine Learning (traditional ML + LLMs)
+- Event-driven architectures
+
+📝 **Recent Writing**
+- [Teaching Machines to Find the Right Reviewer](https://niketansrane.com/blogs/teaching-machines-to-find-the-right-reviewer.html) - Building ML-powered code review systems
+- [Understanding Authentication: OpenID Connect](https://niketansrane.com/blogs/understanding-authentication-openid.html) - Delegated authentication deep dive
+- [Understanding Authentication: A Simple Approach](https://niketansrane.com/blogs/understanding-authentication-simple.html) - From passwords to federated auth
+
+🌐 **Find Me**
+- 🔗 Website: [niketansrane.com](https://niketansrane.com)
+- 💼 LinkedIn: [linkedin.com/in/niketansrane](https://linkedin.com/in/niketansrane)
+- 🐦 Twitter: [@niketansrane](https://twitter.com/niketansrane)
+- 📧 Email: niketan.iiita@gmail.com
+
+---
+
+### About This Repo
+
+This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
+
+**Live at**: [niketansrane.com](https://niketansrane.com) (custom domain via GitHub Pages)
+
+Built with vanilla HTML/CSS as a learning exercise. No frameworks, no build process—just clean, semantic markup and thoughtful design.
 
 ```
 niketansrane/
-├── index.html          # Main homepage
-├── about.html          # About page
-├── blogs/              # Blog section
-│   ├── index.html      # Blog listing
-│   ├── my-first-blog-post.html
-│   └── learning-html-css.html
-└── README.md           # This file
+├── index.html                    # Article listing (homepage)
+├── about.html                    # About me + experience
+└── blogs/
+    ├── understanding-authentication-simple.html
+    ├── understanding-authentication-openid.html
+    └── teaching-machines-to-find-the-right-reviewer.html
 ```
 
-## Features
-
-- Clean, minimalist design
-- Fully responsive layout
-- Blog functionality with multiple posts
-- Experience and Projects sections
-- Social media links with icons
-
-## Deployment to GitHub Pages
-
-This site is hosted on GitHub Pages. To deploy:
-
-1. Go to: https://github.com/new
-2. Create a new repository named `niketansrane` (or any name you prefer)
-3. **Important**: Do NOT initialize with README, .gitignore, or license
-4. After creating, run these commands in your local directory:
-
-```bash
-git remote add origin https://github.com/YOUR-USERNAME/niketansrane.git
-git branch -M main
-git push -u origin main
-```
-
-5. Go to repository Settings → Pages
-6. Under "Source", select "Deploy from a branch"
-7. Select branch: `main` and folder: `/ (root)`
-8. Click Save
-9. Wait 1-2 minutes, then visit: `https://YOUR-USERNAME.github.io/niketansrane`
-
-## Local Development
-
-To view the website locally:
-
-### Option 1: Just open the file
-- Double-click `index.html` and it will open in your default browser
-
-### Option 2: Using Python
-```bash
-python -m http.server 8000
-# Then open http://localhost:8000
-```
-
-### Option 3: Using Node.js
-```bash
-npx http-server -p 8000
-# Then open http://localhost:8000
-```
-
-## Making Changes
-
-1. Edit any HTML file in your favorite code editor (VS Code recommended)
-2. Save the file
-3. Refresh your browser to see changes
-4. Commit your changes:
-```bash
-git add .
-git commit -m "Description of changes"
-git push
-```
-5. GitHub Pages will automatically update (takes 1-2 minutes)
-
-## Technologies Used
-
-- HTML5
-- CSS3
-- SVG icons
-- No JavaScript (yet!)
-- No build process or frameworks
-
-## Future Plans
-
-- [ ] Add dark mode toggle
-- [ ] Add more blog posts
-- [ ] Add search functionality
-- [ ] Add RSS feed for blog
-- [ ] Add projects showcase with images
-- [ ] Custom domain (optional)
-
-## Contact
-
-- Email: niketan.iiita@gmail.com
-- GitHub: [@niketansrane](https://github.com/niketansrane)
-- LinkedIn: [Niketan Rane](https://linkedin.com/in/niketansrane)
-- Twitter: [@niketansrane](https://twitter.com/niketansrane)
+If you want to talk DevEx, system design, AI for developer workflows, cricket, or just about food and travel—I'm always up for a good chat.
