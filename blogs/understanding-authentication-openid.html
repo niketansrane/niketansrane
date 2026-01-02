@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Understanding Authentication: OpenID Connect - Niketan Rane</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 20px 40px 20px;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .name-section h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .name-section h1 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .name-section h1 a:hover {
+            color: #666;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .contact-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-links a:hover {
+            color: #0066cc;
+        }
+        
+        .contact-links svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        nav {
+            margin: 0 0 40px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95em;
+            margin-right: 20px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #1a1a1a;
+        }
+        
+        article header {
+            margin-bottom: 40px;
+        }
+        
+        article h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            color: #888;
+            font-size: 0.95em;
+        }
+        
+        article h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        article h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        
+        article p {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        article ul, article ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+        
+        article li {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        article blockquote {
+            border-left: 3px solid #e5e5e5;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        article code {
+            background-color: #f5f5f5;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        
+        article pre {
+            background-color: #f5f5f5;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        
+        article pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+        }
+        
+        article img {
+            max-width: 100%;
+            height: auto;
+            margin: 24px 0;
+            border-radius: 6px;
+        }
+        
+        article a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        article a:hover {
+            text-decoration: underline;
+        }
+        
+        strong, b {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        em, i {
+            font-style: italic;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 15px 30px 15px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .contact-links {
+                align-self: flex-start;
+            }
+            
+            .name-section h1 {
+                font-size: 1.5em;
+            }
+            
+            article h1 {
+                font-size: 1.8em;
+            }
+            
+            article h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="name-section">
+                <h1><a href="../index.html">Niketan Rane</a></h1>
+            </div>
+            <div class="contact-links">
+                <a href="https://github.com/niketansrane" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/niketansrane" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/niketansrane" target="_blank" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="mailto:niketan.iiita@gmail.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="index.html">← Blog</a>
+            <a href="../index.html">Home</a>
+        </nav>
+        
+        <article>
+            <header>
+                <h1>Understanding Authentication: OpenID Connect</h1>
+                <div class="post-meta">November 2024</div>
+            </header>
+            
+            <p>Last time, we made users sign in with yet another password to see their borrowed books in the library.</p>
+
+            <p>Improving on this, we'll ask a Trusted third party authenticator (Microsoft in this case) to vouch for them. This way we let offload the authentication so that we can focus on our critical business login of showing overdue books to the user.</p>
+
+            <p>A real world analogy will be to hire a security guard to check IDs of people before they enter the library instead of doing it yourself.</p>
+
+            <p>In this blog we will learn how to outsource user authentication to Microsoft using OpenID Connect, which rides on the mighty OAuth2. Instead of storing credentials, we delegate the entire process to a trusted third-party (Microsoft in our case).</p>
+
+            <p>The source code can be found here: <a href="https://github.com/niketansrane/auth101" target="_blank">niketansrane/auth101</a></p>
+
+            <p>Since this has a lot of moving parts involved, let's break it down into different sequential flows which will help us understand how OpenID can be used for logging users to your webapp.</p>
+
+            <p>In case you do not want the descriptive post, here is a quick diagram that shows how delegated authentication (using OpenID) works.</p>
+
+            <p>Remember that, before any of this can take place, the library (client) had to go to Authorization Server (Microsoft in this case) and register itself as a known client. As part of this process, the client has received a unique identifier and a secret which client can use to prove it's identity when it sends requests to authorization token endpoint particularly during the grant to token exchange flow.</p>
+
+            <p>Let's start. This is the moment where our user visits the website's home page and clicks "Sign in with Microsoft".</p>
+
+            <p>One thing I would like to clarify that it you will see the terms client and web server being used interchangeably. This is because in our case the web server is requesting some information about the user from the authority and hence acting as a client in this authorization flow.</p>
+
+            <h2>Authorization Grant Flow</h2>
+
+            <p>Once the user click on "Sign in with Microsoft", the web server hosting receives a request on its <code>microsoftlogin</code> endpoint. The web server (acting as client in this case) follows the OAuth specifications and redirects the user to Authorization Server's authorization endpoint. This is allowed since in this case Microsoft(Authority) will be asking for Microsoft credentials from the user.</p>
+
+            <p>The request is crafted essentially to say "Hey, this user wants to sign in using Microsoft, can you please verify this is a legit user and once you are done verifying, send me a code at this redirect URI."</p>
+
+            <p>Here is how the request will look like.</p>
+
+            <pre><code>https://login.microsoftonline.com/common/oauth2/v2.0/authorize?
+response_type=code
+&client_id=XXX87a4-b7bd-45f2-a53b-b3d537d3XXX
+&redirect_uri=https://auth101.azurewebsites.net/callback
+&scope=openid</code></pre>
+
+            <p>The authorization server then asks for user credentials and upon validation displays a small page to the user that says, "Hey, I have this client (xyz) who wants to access your name/email address. Do you consent to that?"</p>
+
+            <p>Once the user consents, the authorization server sends a grant code to the redirect URI(<code>https://auth101.azurewebsites.net/callback</code>).</p>
+
+            <p>All of this can be written in our web server with few lines of code.</p>
+
+            <pre><code>from oauthlib.oauth2 import WebApplicationClient
+
+AUTH_ENDPOINT="https://login.microsoftonline.com/common/oauth2/v2.0/authorize"
+REDIRECT_URI="https://auth101.azurewebsites.net/callback"
+CLIENT_ID = "XXX87a4-b7bd-45f2-a53b-b3d537d3XXX"
+SCOPE="openid"
+
+@app.get("/microsoftlogin")
+def read_login():
+    web_client = WebApplicationClient(CLIENT_ID)
+    request_uri = web_client.prepare_request_uri(
+                     AUTH_ENDPOINT,
+                     REDIRECT_URI,
+                     SCOPE
+                  )
+    return RedirectResponse(url=request_uri, status_code=302)</code></pre>
+
+            <h2>Grant To Token Exchange Flow</h2>
+
+            <p>Once the web application received the code on it's <code>callback</code> endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his emai.id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
+
+            <p>The request will look like:</p>
+
+            <pre><code>grant_type=authorization_code
+&client_id=XXX87a4-b7bd-45f2-a53b-b3d537d3XXX
+&client_secret="dsfd*****"
+&code=1.ARoAh...
+&redirect_uri=https://auth101.azurewebsites.net/callback</code></pre>
+
+            <p>Note that the redirect URI in both requests should match. This is a validation on the  that the authorization server will perform before sharing the token.</p>
+
+            <p>Implementation:</p>
+
+            <pre><code>from oauthlib.oauth2 import WebApplicationClient
+
+TOKEN_URL="https://login.microsoftonline.com/common/oauth2/v2.0/authorize/oauth2/v2.0/token"
+REDIRECT_URI="https://auth101.azurewebsites.net/callback"
+CLIENT_ID = "XXX87a4-b7bd-45f2-a53b-b3d537d3XXX"
+CLIENT_SECRET="dsfd******"
+
+@app.get("/callback")
+def callback(code: str):
+    web_client = WebApplicationClient(CLIENT_ID)
+    request_body = web_client.prepare_request_body(code, REDIRECT_URI, CLIENT_SECRET)
+
+    response = requests.post(url=TOKEN_URL, data=request_body)
+    web_client.parse_request_body_response(response.text)
+    token = web_client.access_token
+
+    # DECODE THE TOKEN AND GET USER INFO
+    decoded = jwt.decode(token, options={"verify_signature": False})
+    username = decoded.get("unique_name")
+    username = decoded.get("sub") if username is None else username</code></pre>
+
+            <h2>Session Setup Flow</h2>
+
+            <p>Now that the web application has user information, it can set a cookie so that subsequent requests for the session can use the same token and need not do perform all those flows again for next X minutes.</p>
+
+            <pre><code>code for callback endpoint from above ...
+....
+
+    decoded = jwt.decode(token, options={"verify_signature": False})
+    username = decoded.get("unique_name")
+    username = decoded.get("sub") if username is None else username
+
+    response = RedirectResponse(url="/books", status_code=302)
+    response.set_cookie(key="username", value=username)
+    return response</code></pre>
+
+            <p>Now that the cookie is set, the browser makes a request to /books:</p>
+
+            <p>If the cookie is present, we let Niketan in. He sees the books page personalized with his name and a book list.</p>
+
+            <pre><code>@app.get("/books", response_class=HTMLResponse)
+def books(request: Request):
+    username = request.cookies.get("username")
+    if not username:
+        return RedirectResponse("/")
+    
+    books = get_random_books()
+    return templates.TemplateResponse(
+        "borrowed_books.html",
+        {"request": request, "username": username, "books": books}
+    )</code></pre>
+
+            <p>In the next post, we will check how OAuth (delegated authorization) works using the same example. Happy coding till then.</p>
+            
+        </article>
+    </div>
+</body>
+</html>

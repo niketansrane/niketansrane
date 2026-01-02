@@ -1,0 +1,410 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Teaching Machines to Find the Right Reviewers - Niketan Rane</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', sans-serif;
+            line-height: 1.6;
+            color: #1a1a1a;
+            background-color: #ffffff;
+            padding: 20px;
+        }
+        
+        .container {
+            max-width: 680px;
+            margin: 0 auto;
+            padding: 20px 20px 40px 20px;
+        }
+        
+        .top-bar {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 40px;
+        }
+        
+        .name-section h1 {
+            font-size: 1.8em;
+            font-weight: 600;
+            margin-bottom: 0;
+            letter-spacing: -0.02em;
+        }
+        
+        .name-section h1 a {
+            color: #1a1a1a;
+            text-decoration: none;
+        }
+        
+        .name-section h1 a:hover {
+            color: #666;
+        }
+        
+        .contact-links {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            gap: 16px;
+        }
+        
+        .contact-links a {
+            color: #666;
+            text-decoration: none;
+            transition: color 0.2s;
+            display: flex;
+            align-items: center;
+        }
+        
+        .contact-links a:hover {
+            color: #0066cc;
+        }
+        
+        .contact-links svg {
+            width: 20px;
+            height: 20px;
+            fill: currentColor;
+        }
+        
+        nav {
+            margin: 0 0 40px 0;
+            padding-bottom: 20px;
+            border-bottom: 1px solid #e5e5e5;
+        }
+        
+        nav a {
+            color: #666;
+            text-decoration: none;
+            font-size: 0.95em;
+            margin-right: 20px;
+            transition: color 0.2s;
+        }
+        
+        nav a:hover {
+            color: #1a1a1a;
+        }
+        
+        article header {
+            margin-bottom: 40px;
+        }
+        
+        article h1 {
+            font-size: 2.2em;
+            font-weight: 600;
+            margin-bottom: 15px;
+            letter-spacing: -0.02em;
+            line-height: 1.2;
+        }
+        
+        .post-meta {
+            color: #888;
+            font-size: 0.95em;
+        }
+        
+        article h2 {
+            font-size: 1.5em;
+            font-weight: 600;
+            margin-top: 36px;
+            margin-bottom: 16px;
+            letter-spacing: -0.01em;
+        }
+        
+        article h3 {
+            font-size: 1.3em;
+            font-weight: 600;
+            margin-top: 32px;
+            margin-bottom: 12px;
+        }
+        
+        article p {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 20px;
+            line-height: 1.7;
+        }
+        
+        article ul, article ol {
+            margin: 20px 0;
+            padding-left: 28px;
+        }
+        
+        article li {
+            color: #333;
+            font-size: 1.05em;
+            margin-bottom: 10px;
+            line-height: 1.7;
+        }
+        
+        article blockquote {
+            border-left: 3px solid #e5e5e5;
+            padding-left: 20px;
+            margin: 24px 0;
+            color: #666;
+            font-style: italic;
+        }
+        
+        article code {
+            background-color: #f5f5f5;
+            padding: 3px 6px;
+            border-radius: 3px;
+            font-family: 'SF Mono', 'Monaco', 'Inconsolata', 'Roboto Mono', monospace;
+            font-size: 0.9em;
+            color: #c7254e;
+        }
+        
+        article pre {
+            background-color: #f5f5f5;
+            padding: 16px;
+            border-radius: 6px;
+            overflow-x: auto;
+            margin: 24px 0;
+        }
+        
+        article pre code {
+            background-color: transparent;
+            padding: 0;
+            color: #333;
+        }
+        
+        article img {
+            max-width: 100%;
+            height: auto;
+            margin: 24px 0;
+            border-radius: 6px;
+        }
+        
+        article a {
+            color: #0066cc;
+            text-decoration: none;
+        }
+        
+        article a:hover {
+            text-decoration: underline;
+        }
+        
+        strong, b {
+            font-weight: 600;
+            color: #1a1a1a;
+        }
+        
+        em, i {
+            font-style: italic;
+        }
+        
+        hr {
+            border: none;
+            border-top: 1px solid #e5e5e5;
+            margin: 40px 0;
+        }
+        
+        @media (max-width: 768px) {
+            .container {
+                padding: 15px 15px 30px 15px;
+            }
+            
+            .top-bar {
+                flex-direction: column;
+                align-items: flex-start;
+                gap: 15px;
+            }
+            
+            .contact-links {
+                align-self: flex-start;
+            }
+            
+            .name-section h1 {
+                font-size: 1.5em;
+            }
+            
+            article h1 {
+                font-size: 1.8em;
+            }
+            
+            article h2 {
+                font-size: 1.3em;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="top-bar">
+            <div class="name-section">
+                <h1><a href="../index.html">Niketan Rane</a></h1>
+            </div>
+            <div class="contact-links">
+                <a href="https://github.com/niketansrane" target="_blank" aria-label="GitHub">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.107-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.911 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/>
+                    </svg>
+                </a>
+                <a href="https://linkedin.com/in/niketansrane" target="_blank" aria-label="LinkedIn">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433c-1.144 0-2.063-.926-2.063-2.065 0-1.138.92-2.063 2.063-2.063 1.14 0 2.064.925 2.064 2.063 0 1.139-.925 2.065-2.064 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/>
+                    </svg>
+                </a>
+                <a href="https://twitter.com/niketansrane" target="_blank" aria-label="Twitter">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M18.244 2.25h3.308l-7.227 8.26 8.502 11.24H16.17l-5.214-6.817L4.99 21.75H1.68l7.73-8.835L1.254 2.25H8.08l4.713 6.231zm-1.161 17.52h1.833L7.084 4.126H5.117z"/>
+                    </svg>
+                </a>
+                <a href="mailto:niketan.iiita@gmail.com" aria-label="Email">
+                    <svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M20 4H4c-1.1 0-1.99.9-1.99 2L2 18c0 1.1.9 2 2 2h16c1.1 0 2-.9 2-2V6c0-1.1-.9-2-2-2zm0 4l-8 5-8-5V6l8 5 8-5v2z"/>
+                    </svg>
+                </a>
+            </div>
+        </div>
+        
+        <nav>
+            <a href="index.html">← Blog</a>
+            <a href="../index.html">Home</a>
+        </nav>
+        
+        <article>
+            <header>
+                <h1>Teaching Machines to Find the Right Reviewers</h1>
+                <div class="post-meta">December 2024</div>
+            </header>
+            
+            <p>When you're dealing with hundreds of pull requests a day, the old way of doing things breaks down pretty fast. Most large codebases which use Azure Devops for the code management depend on path-based assignment rules to decide reviewers / reviewer groups. It works, but only to an extent. As teams and repositories grow, those rules quickly go stale.</p>
+
+            <p>More importantly, solving this proglem might seem simple on paper by introducing accountability (which quickly goes for a toss unless there is *monetary reward associated with an activity like code review) but finding right reviewers when you have hundreds of pull requets merged in a day is challenging.</p>
+
+            <p>This post walks through the problem, the ML approach, and what I learned building a data-driven alternative to configuration files.</p>
+
+            <p><em>Note: I have used AI to help write portions of this post.</em></p>
+
+            <h2>The Problem</h2>
+
+            <p>Let me explain this problem with a concrete example. Remember I am talking about Azure Devops Enterprise (not Github), so some of the terms might be new but any organization that works at scale eventually gets into this same problem.</p>
+
+            <p>Here's what the enterprise started (rather stuck) with: a path-based system for assigning reviewers. You touch a file in <code>/src/messaging</code>, you get the messaging team as reviewers. Touch something in <code>/components/chat</code>, you get the chat team. Simple solution to start with.</p>
+
+            <p>Except it doesn't actually work when you scale up. 🥲</p>
+
+            <ul>
+                <li>How about a single PR that touched five different directories?</li>
+                <li>Someone who became an expert in a new area six months ago? Too bad, the path rules haven't been updated.</li>
+                <li>That one senior engineer who technically owns <code>/legacy-code</code> but hasn't looked at it in two years? They're getting pinged (spammed) anyway.</li>
+            </ul>
+
+            <p>And the worst part? The people who <em>should</em> be reviewing certain changes—the ones who actually have context, who recently worked on similar code, who could provide valuable feedback—they never even see those PRs. Let's call this a discoverability problem.</p>
+
+            <h2>What If We Just... Asked the Data?</h2>
+
+            <p>The pros of scale is that you have tremendous data lying around. In this case, the enterprise had years of pull request history just sitting there. Thousand of reviews, hidden-patterns that we just had to identify. What if instead of maintaining these rigid path-based rules, I let a machine learning model figure out who the right reviewers actually are?</p>
+
+            <p>Not based on who owns a directory in a config file, but based on who's actually been doing the work.</p>
+
+            <p>So I built a machine learning recommendation system that predicts whether a pull request is relevant to a reviewer based on historical patterns.</p>
+
+            <h2>The Core Approach</h2>
+
+            <p>Instead of hardcoded rules, I took a classification approach. For any given PR and reviewer pair, the model predicts: is this PR relevant for this person?</p>
+
+            <p>The model looks at four main dimensions:</p>
+
+            <p><strong>Sociality:</strong> Do you know the person who wrote this code? If you've reviewed their PRs before, there's probably a reason. Maybe you work closely together, maybe you're both experts in the same domain. That social connection matters. Over time, I also realised over time that this *indirectly correlates developers reporting to same leadership without using management chart data.</p>
+
+            <p><strong>Context:</strong> Do you understand what this PR is trying to do? Not just "have you touched these files," but do you understand the broader problem space? Have you worked on related features recently?</p>
+
+            <p><strong>Interest alignment:</strong> Does this match your review patterns? Some people gravitate toward performance work, others toward UI, others toward infrastructure. The model picks up on these patterns over time.</p>
+
+            <p><strong>Expertise:</strong> Are you actually knowledgeable here? This is where we look at your contributions, your review history, your engagement with similar code. Not just whether you own a directory, but whether you really know this stuff.</p>
+
+            <h2>Handling the Time Problem</h2>
+
+            <p>The clever bit—and this took some iteration—is how I handled time. Instead of looking at the complete git history, I used a rolling windows approach: 30 days, 90 days, 180 days.</p>
+
+            <p>This way, if your focus shifts, the model shifts with you. If you stop working on auth code and move to API design, you'll stop getting auth PRs and start seeing API ones. This temporal dimension helps prevent stale recommendations and ensures the model stays current with people's evolving expertise.</p>
+
+            <p>We also retrain the model regularly, using only recent historical data. This keeps it from getting stuck in outdated patterns.</p>
+
+            <h2>Building Features That Actually Matter</h2>
+
+            <p>The feature engineering was the heart of this. For each PR-reviewer pair, we extract signals across those four dimensions:</p>
+
+            <ul>
+                <li>How many times has this reviewer worked with this author?</li>
+                <li>What's the overlap between files the reviewer has touched and files in this PR?</li>
+                <li>How recently did the reviewer work on similar changes?</li>
+                <li>What's the reviewer's contribution pattern in related areas?</li>
+            </ul>
+
+            <p>Each signal gets computed across multiple time windows. So instead of just "has this person reviewed 10 PRs from this author," I know "they reviewed 2 in the last month, 5 in the last quarter, 8 in the last six months." That temporal granularity turns out to be really important.</p>
+
+            <h2>Avoiding the Reinforcement Trap</h2>
+
+            <p>Building this wasn't just about getting the model to perform well. It was about avoiding the traps that other systems fell into.</p>
+
+            <p>There's a natural self-reinforcing bias in reviewer recommendation systems. If you review one type of PR once, you might keep getting assigned similar PRs, which means you'd review them, which means you'd get assigned more, and suddenly you're pigeonholed.</p>
+
+            <p>I tried to break that cycle by looking beyond just file-level interactions. The sociality introduced diversity based on who you work with, not just what files you touch. The temporal windows let your expertise profile(expertise) evolve naturally. The fact that we retrain frequently helps finding new patterns can emerge without being drowned out by old history (say new teams forming for dedicated areas).</p>
+
+            <p>It's not perfect but it's better than pretending we can hardcode expertise in a configuration file.</p>
+
+            <h2>What I Learned Along the Way</h2>
+
+            <p>The biggest lesson? <strong>Feature engineering matters more than model complexity.</strong></p>
+
+            <p>I didn't use anything exotic—just a solid classification model. The magic was in figuring out which signals actually predicted review relevance. File overlap alone wasn't enough. Recency alone wasn't enough. But the combination of sociality, context, interest, and expertise across multiple time windows? That worked.</p>
+
+            <p>Second lesson: <strong>Temporal features are crucial for systems that evolve.</strong> Codebases change. People's roles change. A static model trained on all-time data gets stale fast. Building time into the feature space itself keeps the recommendations fresh.</p>
+
+            <p>Third: <strong>Test on realistic data.</strong> I validated this on a large corpus of historical pull requests, looking at whether the model correctly predicted actual review relationships. That ground truth testing caught issues early that would have been painful to discover in production.</p>
+
+            <h2>What This Approach Enables</h2>
+
+            <p>Beyond just faster code reviews, this pattern opens up interesting possibilities:</p>
+
+            <ul>
+                <li><strong>Reduced review fatigue:</strong> People only see PRs they're actually qualified to review</li>
+                <li><strong>Better knowledge distribution:</strong> Junior engineers get matched with senior reviewers who know the relevant domain</li>
+                <li><strong>Discovery of hidden expertise:</strong> The model can surface people who have relevant knowledge but weren't in the hardcoded reviewer lists</li>
+                <li><strong>Adaptive expertise tracking:</strong> As people's skills and focus areas evolve, the recommendations evolve with them</li>
+            </ul>
+
+            <p>It's a shift from "who should review this based on organizational structure" to "who can actually provide valuable feedback based on demonstrated expertise."</p>
+
+            <h2>Where This Approach Falls Short</h2>
+
+            <p>Let me be clear about the limitations:</p>
+
+            <p><strong>Cold start problems.</strong> New engineers have no review history. The model can't recommend them or suggest what they should review.</p>
+
+            <p><strong>New code areas.</strong> If nobody's touched a module before, there's no expertise signal to learn from.</p>
+
+            <p><strong>Bias reinforcement.</strong> The model learns from existing patterns. If your review distribution was inequitable before, it'll stay that way.</p>
+
+            <p><strong>Rare expertise gets missed.</strong> That one person who knows the legacy billing system but hasn't touched it in six months? The model might not surface them when you need them.</p>
+
+            <p><strong>Small teams don't need this.</strong> With 10 engineers who all know the codebase, simple round-robin works fine. This approach only makes sense at scale.</p>
+
+            <h2>The Bigger Picture</h2>
+
+            <p>Code review is just one place where we rely on rigid rules that don't reflect reality. The same pattern could apply to:</p>
+
+            <ul>
+                <li><strong>Incident response</strong> (who should be paged for this type of issue?)</li>
+                <li><strong>Design reviews</strong> (who has relevant experience with this architecture?)</li>
+                <li><strong>Onboarding</strong> (who should a new engineer shadow based on their interests?)</li>
+            </ul>
+
+            <p>Any time you're matching people to work based on expertise, this kind of data-driven approach beats hardcoded rules.</p>
+
+            <hr>
+
+            <p>This approach to reviewer recommendation is something I built to solve a real scaling problem in large engineering organizations. If you're working on similar challenges or want to discuss the technical details, I'm always happy to chat about what worked, what didn't, and what I'd do differently next time.</p>
+            
+        </article>
+    </div>
+</body>
+</html>
