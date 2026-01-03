@@ -1,6 +1,7 @@
 # Hi, I'm Niketan 👋
 
-I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help developers ship their products and features faster. 
+I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help developers ship their products and features faster.
+If you want to talk Developer Experience, AI for developer productivity or cricket, I'm always up for a good chat.
 
 🚀 **What I Do**
 - Built the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/). It's a conversational AI system powered by LLMs that automates the entire pull request lifecycle (primarily Azure Devops repos).
@@ -32,17 +33,4 @@ I'm a software engineer at Microsoft, building AI-powered developer productivity
 This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
 
 **Live at**: [about.niketansrane.com](https://about.niketansrane.com)
-
 Built with vanilla HTML/CSS as a learning exercise. I used copilot to build this end-to-end.
-
-```
-niketansrane/
-├── index.html                    # Article listing (homepage)
-├── about.html                    # About me + experience
-└── blogs/
-    ├── understanding-authentication-simple.html
-    ├── understanding-authentication-openid.html
-    └── teaching-machines-to-find-the-right-reviewer.html
-```
-
-If you want to talk DevEx, system design, AI for developer workflows, cricket, or just about food and trave, I'm always up for a good chat.
