@@ -21,7 +21,7 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 - [Understanding Authentication: A Simple Approach](https://niketansrane.com/blogs/understanding-authentication-simple.html) - From passwords to federated auth
 
 🌐 **Find Me**
-- 🔗 Website: [about.niketansrane.com](https://about.niketansrane.com)
+- 🔗 Website: [niketansrane.com](https://niketansrane.com)
 - 💼 LinkedIn: [linkedin.com/in/niketanrane](https://linkedin.com/in/niketanrane)
 - 🐦 Twitter: [@niketansrane](https://twitter.com/niketansrane)
 - 📧 Email: niketan.iiita@gmail.com
@@ -32,5 +32,5 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 
 This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
 
-**Live at**: [about.niketansrane.com](https://about.niketansrane.com)
+**Live at**: [niketansrane.com](https://niketansrane.com)
 Built with vanilla HTML/CSS as a learning exercise. I used copilot to build this end-to-end.
