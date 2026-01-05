@@ -1,24 +1,9 @@
-/* Blog-specific styles */
+/* Blog-specific styles - imports base styles */
+@import url('../assets/css/base.css');
 
+/* Additional blog-specific spacing */
 :root {
-    --space-xs: 4px;
-    --space-sm: 8px;
-    --space-md: 16px;
-    --space-lg: 24px;
-    --space-xl: 48px;
-    --font-mono: 'Ubuntu Mono', 'Courier New', monospace;
-    --text-primary: #111111;
-    --text-secondary: #333333;
-    --text-muted: #777777;
-    --bg-primary: #FFFFFF;
-    --bg-secondary: #F7F7F7;
-    --bg-tertiary: #E5E5E5;
-    --border: #CDCDCD;
-    --border-strong: #999999;
-    --accent: #E95420;
-    --link: #0077B5;
-    --radius-sm: 3px;
-    --radius-md: 6px;
+    --space-xxl: 48px;
 }
 
 .blog-wrapper {
