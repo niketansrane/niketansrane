@@ -16,9 +16,10 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 - Event-driven architectures
 
 📝 **Recent Writing**
-- [Teaching Machines to Find the Right Reviewer](https://niketansrane.com/blogs/teaching-machines-to-find-the-right-reviewer.html) - Building ML-powered code review systems
+- [Building a Claude Agent for Continuous Codebase Improvement](https://niketansrane.com/blogs/claude-agent-continuous-codebase-improvement.html) - Using AI sub-agents to incrementally improve codebases
+- [Teaching Machines to Find the Right Reviewers](https://niketansrane.com/blogs/teaching-machines-find-right-reviewers.html) - Building ML-powered code review systems
 - [Understanding Authentication: OpenID Connect](https://niketansrane.com/blogs/understanding-authentication-openid.html) - Delegated authentication deep dive
-- [Understanding Authentication: A Simple Approach](https://niketansrane.com/blogs/understanding-authentication-simple.html) - From passwords to federated auth
+- [Understanding Authentication: OAuth 2.0](https://niketansrane.com/blogs/understanding-authentication-oauth.html) - From passwords to federated auth
 
 🌐 **Find Me**
 - 🔗 Website: [niketansrane.com](https://niketansrane.com)
