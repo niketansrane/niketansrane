@@ -31,10 +31,22 @@
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="alternate icon" href="../favicon.svg">
 
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('preferred-theme');
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <title>Building a Claude Agent for Continuous Codebase Improvement - Niketan Rane</title>
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="blog.css">
-    <link rel="stylesheet" href="../assets/css/highlight-github.min.css">
+    <link rel="stylesheet" href="../assets/css/highlight-github.min.css" data-highlight-theme>
     <script src="../assets/js/highlight.min.js"></script>
     <script>hljs.highlightAll();</script>
 </head>
@@ -343,5 +355,6 @@ AUTO_ASSIGN_TO_GUID=
             <p>&copy; 2026 Niketan Rane</p>
         </footer>
     </div>
+    <script src="../assets/js/theme.js"></script>
 </body>
 </html>

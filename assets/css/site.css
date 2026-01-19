@@ -16,10 +16,10 @@
 .contact-links a{color:var(--text-secondary);text-decoration:none;display:flex;align-items:center}
 .contact-links a:hover{color:var(--accent)}
 .contact-links svg{width:20px;height:20px}
-.contact-links a[href*="github"] svg{fill:#000}
-.contact-links a[href*="linkedin"] svg{fill:#0077B5}
-.contact-links a[href*="twitter"] svg{fill:#000}
-.contact-links a[href*="mailto"] svg path{fill:#EA4335}
+.contact-links a[href*="github"] svg{fill:var(--icon-github)}
+.contact-links a[href*="linkedin"] svg{fill:var(--icon-linkedin)}
+.contact-links a[href*="twitter"] svg{fill:var(--icon-twitter)}
+.contact-links a[href*="mailto"] svg path{fill:var(--icon-email)}
 .contact-links .about-link{font-size:13px;color:var(--text-secondary);margin-right:var(--space-sm)}
 
 /* Sections */
@@ -53,10 +53,21 @@ footer{margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px sol
 .about-content a{color:var(--link);text-decoration:none}
 .about-content a:hover{text-decoration:underline}
 
+/* Theme Switcher */
+.theme-switcher{display:flex;align-items:center;gap:2px;background:var(--bg-tertiary);border-radius:20px;padding:3px;margin-left:var(--space-sm)}
+.theme-btn{background:none;border:none;cursor:pointer;padding:6px 8px;border-radius:16px;display:flex;align-items:center;justify-content:center;transition:background-color 0.2s,transform 0.1s}
+.theme-btn svg{width:16px;height:16px;fill:var(--text-muted);transition:fill 0.2s}
+.theme-btn:hover{background:var(--bg-secondary)}
+.theme-btn:hover svg{fill:var(--text-secondary)}
+.theme-btn.active{background:var(--bg-primary)}
+.theme-btn.active svg{fill:var(--accent)}
+.theme-btn:active{transform:scale(0.95)}
+
 /* Responsive */
 @media(max-width:768px){
   body{padding:var(--space-md)}
   .container{padding:var(--space-md)}
   .top-bar{flex-direction:column;align-items:flex-start;gap:var(--space-md)}
   .name-section h1{font-size:20px}
+  .theme-switcher{margin-left:0}
 }
