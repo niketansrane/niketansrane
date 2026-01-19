@@ -26,7 +26,19 @@
     
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg" />
-    
+
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('preferred-theme');
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <title>About - Niketan Rane</title>
     <link rel="stylesheet" href="assets/css/site.css" />
   </head>
@@ -262,5 +274,6 @@
         <p>&copy; 2026 Niketan Rane</p>
       </footer>
     </div>
+    <script src="assets/js/theme.js"></script>
   </body>
 </html>

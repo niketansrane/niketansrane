@@ -28,9 +28,21 @@
     <!-- Favicon -->
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
     
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem('preferred-theme');
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
     <!-- Preload critical CSS -->
     <link rel="preload" href="assets/css/site.css" as="style">
-    
+
     <title>Niketan Rane - Software Engineer & Builder</title>
     <link rel="stylesheet" href="assets/css/site.css">
     
@@ -137,5 +149,6 @@
             <p>&copy; 2026 Niketan Rane</p>
         </footer>
     </div>
+    <script src="assets/js/theme.js"></script>
 </body>
 </html>

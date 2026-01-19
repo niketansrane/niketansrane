@@ -1,0 +1,6 @@
+pre code.hljs{display:block;overflow-x:auto;padding:1em}code.hljs{padding:3px 5px}/*!
+  Theme: Monokai
+  Description: Monokai-inspired syntax highlighting
+  Author: Wimer Hazenberg
+  Maintainer: @isagalaev
+*/.hljs{color:#f8f8f2;background:#272822}.hljs-keyword,.hljs-meta .hljs-keyword,.hljs-tag,.hljs-template-tag,.hljs-template-variable,.hljs-type{color:#f92672}.hljs-title,.hljs-title.class_,.hljs-title.class_.inherited__,.hljs-title.function_{color:#a6e22e}.hljs-attr,.hljs-attribute,.hljs-literal,.hljs-meta,.hljs-number,.hljs-operator,.hljs-selector-attr,.hljs-selector-class,.hljs-selector-id,.hljs-variable{color:#ae81ff}.hljs-meta .hljs-string,.hljs-regexp,.hljs-string{color:#e6db74}.hljs-built_in,.hljs-symbol{color:#66d9ef}.hljs-code,.hljs-comment,.hljs-formula{color:#75715e}.hljs-name,.hljs-quote,.hljs-selector-pseudo,.hljs-selector-tag{color:#f92672}.hljs-subst{color:#f8f8f2}.hljs-section{color:#a6e22e;font-weight:700}.hljs-bullet{color:#ae81ff}.hljs-emphasis{color:#f8f8f2;font-style:italic}.hljs-strong{color:#f8f8f2;font-weight:700}.hljs-addition{color:#a6e22e;background-color:#3e3d32}.hljs-deletion{color:#f92672;background-color:#3e3d32}.hljs-doctag{color:#66d9ef}

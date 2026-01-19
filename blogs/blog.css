@@ -313,18 +313,32 @@
     }
 }
 
+/* Theme Switcher for blog pages */
+.theme-switcher{display:flex;align-items:center;gap:2px;background:var(--bg-tertiary);border-radius:20px;padding:3px;margin-left:var(--space-sm)}
+.theme-btn{background:none;border:none;cursor:pointer;padding:6px 8px;border-radius:16px;display:flex;align-items:center;justify-content:center;transition:background-color 0.2s,transform 0.1s}
+.theme-btn svg{width:16px;height:16px;fill:var(--text-muted);transition:fill 0.2s}
+.theme-btn:hover{background:var(--bg-secondary)}
+.theme-btn:hover svg{fill:var(--text-secondary)}
+.theme-btn.active{background:var(--bg-primary)}
+.theme-btn.active svg{fill:var(--accent)}
+.theme-btn:active{transform:scale(0.95)}
+
 @media (max-width: 480px) {
     .blog-header {
         flex-direction: column;
         gap: var(--space-sm);
         align-items: flex-start;
     }
-    
+
     .post-link {
         padding: var(--space-md);
     }
-    
+
     .post-card .post-title {
         font-size: 16px;
+    }
+
+    .theme-switcher {
+        margin-left: 0;
     }
 }

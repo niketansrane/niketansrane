@@ -2,8 +2,8 @@
 :root {
   /* Typography */
   --font-mono: 'SF Mono','Monaco','Inconsolata','Fira Mono','Droid Sans Mono','Source Code Pro',monospace;
-  
-  /* Colors */
+
+  /* Colors - Light theme (default) */
   --bg-primary: #ffffff;
   --bg-secondary: #f8f8f8;
   --bg-tertiary: #f0f0f0;
@@ -14,7 +14,13 @@
   --border-strong: #c0c0c0;
   --accent: #E95420; /* Ubuntu orange */
   --link: #E95420;
-  
+
+  /* Icon colors */
+  --icon-github: #000;
+  --icon-linkedin: #0077B5;
+  --icon-twitter: #000;
+  --icon-email: #EA4335;
+
   /* Spacing */
   --space-xs: 4px;
   --space-sm: 8px;
@@ -22,10 +28,46 @@
   --space-lg: 24px;
   --space-xl: 32px;
   --space-xxl: 48px;
-  
+
   /* Border radius */
   --radius-sm: 3px;
   --radius-md: 6px;
+}
+
+/* Dark Theme */
+[data-theme="dark"] {
+  --bg-primary: #1a1a1a;
+  --bg-secondary: #242424;
+  --bg-tertiary: #2d2d2d;
+  --text-primary: #e0e0e0;
+  --text-secondary: #a0a0a0;
+  --text-muted: #666;
+  --border: #3a3a3a;
+  --border-strong: #4a4a4a;
+  --accent: #E95420;
+  --link: #FF6B35;
+  --icon-github: #e0e0e0;
+  --icon-linkedin: #5BA0D0;
+  --icon-twitter: #e0e0e0;
+  --icon-email: #FF6B6B;
+}
+
+/* Sublime Theme (Monokai-inspired) */
+[data-theme="sublime"] {
+  --bg-primary: #272822;
+  --bg-secondary: #3e3d32;
+  --bg-tertiary: #49483e;
+  --text-primary: #f8f8f2;
+  --text-secondary: #a6a6a6;
+  --text-muted: #75715e;
+  --border: #49483e;
+  --border-strong: #5a584e;
+  --accent: #f92672; /* Monokai pink */
+  --link: #66d9ef; /* Monokai cyan */
+  --icon-github: #f8f8f2;
+  --icon-linkedin: #66d9ef;
+  --icon-twitter: #f8f8f2;
+  --icon-email: #f92672;
 }
 
 /* Global reset */
@@ -33,6 +75,15 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
+}
+
+/* Smooth theme transitions */
+html {
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+body, a, svg, .theme-switcher {
+  transition: background-color 0.3s ease, color 0.3s ease, fill 0.3s ease, border-color 0.3s ease;
 }
 
 /* Base typography */
