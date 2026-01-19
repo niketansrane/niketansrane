@@ -16,13 +16,13 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 - Event-driven architectures
 
 📝 **Recent Writing**
-- [Building a Claude Agent for Continuous Codebase Improvement](https://niketansrane.com/blogs/claude-agent-continuous-codebase-improvement.html) - Using AI sub-agents to incrementally improve codebases
-- [Teaching Machines to Find the Right Reviewers](https://niketansrane.com/blogs/teaching-machines-find-right-reviewers.html) - Building ML-powered code review systems
-- [Understanding Authentication: OpenID Connect](https://niketansrane.com/blogs/understanding-authentication-openid.html) - Delegated authentication deep dive
-- [Understanding Authentication: OAuth 2.0](https://niketansrane.com/blogs/understanding-authentication-oauth.html) - From passwords to federated auth
+- [Building a Claude Agent for Continuous Codebase Improvement](https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement.html) - Using AI sub-agents to incrementally improve codebases
+- [Teaching Machines to Find the Right Reviewers](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers.html) - Building ML-powered code review systems
+- [Understanding Authentication: OpenID Connect](https://www.niketansrane.com/blogs/understanding-authentication-openid.html) - Delegated authentication deep dive
+- [Understanding Authentication: OAuth 2.0](https://www.niketansrane.com/blogs/understanding-authentication-oauth.html) - From passwords to federated auth
 
 🌐 **Find Me**
-- 🔗 Website: [niketansrane.com](https://niketansrane.com)
+- 🔗 Website: [niketansrane.com](https://www.niketansrane.com)
 - 💼 LinkedIn: [linkedin.com/in/niketanrane](https://linkedin.com/in/niketanrane)
 - 🐦 Twitter: [@niketansrane](https://twitter.com/niketansrane)
 - 📧 Email: niketan.iiita@gmail.com
@@ -34,5 +34,5 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 
 This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
 
-**Live at**: [niketansrane.com](https://niketansrane.com)
+**Live at**: [niketansrane.com](https://www.niketansrane.com)
 Built with vanilla HTML/CSS as a learning exercise. I used copilot to build this end-to-end.
