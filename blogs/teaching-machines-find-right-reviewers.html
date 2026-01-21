@@ -113,6 +113,60 @@
 
                     <p><strong>Expertise:</strong> Are you actually knowledgeable here? This is where we look at your contributions, your review history, your engagement with similar code. Not just whether you own a directory, but whether you really know this stuff.</p>
 
+                    <p>Here's how the entire recommendation pipeline works:</p>
+
+                    <pre class="mermaid">
+---
+config:
+  theme: neutral
+  layout: dagre
+  look: classic
+---
+flowchart TB
+ subgraph Input["📥 Input"]
+        PR["New Pull Request"]
+        RC["Reviewer Candidates"]
+  end
+ subgraph Features["🔬 Feature Extraction"]
+    direction TB
+        FE["Feature Engineering"]
+        S["Sociality&lt;br&gt;Author-Reviewer History"]
+        C["Context&lt;br&gt;File &amp; Problem Space Overlap"]
+        I["Interest&lt;br&gt;Review Pattern Matching"]
+        E["Expertise&lt;br&gt;Contribution History"]
+  end
+ subgraph Temporal["⏱️ Temporal Windows"]
+        TW["Rolling Windows&lt;br&gt;30d | 90d | 180d"]
+  end
+ subgraph Model["🤖 ML Classification"]
+        M["Binary Classifier"]
+        P{"Is PR relevant&lt;br&gt;for this reviewer?"}
+  end
+ subgraph Output["📤 Output"]
+        RR["Recommended Reviewers"]
+        NR["Not Recommended"]
+        RANK["Ranked by&lt;br&gt;Relevance Score"]
+  end
+    PR --> FE
+    RC --> FE
+    FE --> S & C & I & E
+    S --> TW
+    C --> TW
+    I --> TW
+    E --> TW
+    TW --> M
+    M -- "For each PR-Reviewer pair" --> P
+    P -- Yes --> RR
+    P -- No --> NR
+    RR --> RANK
+
+    style Input fill:#e1f5fe
+    style Features fill:#fff3e0
+    style Temporal fill:#f3e5f5
+    style Model fill:#e8f5e9
+    style Output fill:#fce4ec
+                    </pre>
+
                     <h2>Handling the Time Problem</h2>
 
                     <p>The clever bit—and this took some iteration—is how I handled time. Instead of looking at the complete git history, I used a rolling windows approach: 30 days, 90 days, 180 days.</p>
@@ -210,5 +264,7 @@
     </div>
     <script src="../assets/js/theme.js"></script>
     <script src="../assets/js/analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 </body>
 </html>
