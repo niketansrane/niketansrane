@@ -1,0 +1,30 @@
+#!/bin/sh
+# Pre-commit hook to validate HTML files
+
+echo "🔍 Validating HTML files..."
+
+# Check if npm is available
+if ! command -v npm &> /dev/null; then
+    echo "⚠️  npm not found, skipping HTML validation"
+    exit 0
+fi
+
+# Run htmlhint on staged HTML files
+STAGED_HTML=$(git diff --cached --name-only --diff-filter=ACM | grep -E '\.html$')
+
+if [ -z "$STAGED_HTML" ]; then
+    echo "✓ No HTML files to validate"
+    exit 0
+fi
+
+# Run htmlhint
+npx htmlhint $STAGED_HTML
+
+if [ $? -ne 0 ]; then
+    echo ""
+    echo "❌ HTML validation failed. Please fix the errors above."
+    exit 1
+fi
+
+echo "✓ HTML validation passed"
+exit 0

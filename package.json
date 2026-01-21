@@ -1,0 +1,13 @@
+{
+  "name": "niketansrane",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Personal website",
+  "scripts": {
+    "lint": "htmlhint \"*.html\" \"blogs/*.html\"",
+    "prepare": "git config core.hooksPath .githooks"
+  },
+  "devDependencies": {
+    "htmlhint": "^1.1.4"
+  }
+}
