@@ -25,7 +25,7 @@ Comprehensive improvements made to niketansrane.com focusing on SEO, performance
 
 #### Canonical URLs (5/5 main pages)
 - Added canonical link tags to prevent duplicate content issues
-- Points to https://niketansrane.com/[page]
+- Points to https://www.niketansrane.com/[page]
 
 #### Keywords Meta Tags
 - Added relevant keywords for search engines
@@ -83,13 +83,13 @@ Comprehensive improvements made to niketansrane.com focusing on SEO, performance
 - Created XML sitemap with all main pages
 - Includes: lastmod, changefreq, priority
 - Helps search engines discover and index pages
-- Located at root: https://niketansrane.com/sitemap.xml
+- Located at root: https://www.niketansrane.com/sitemap.xml
 
 #### robots.txt
 - Created robots.txt to guide search engine crawlers
 - Allows all bots to crawl all pages
 - References sitemap.xml location
-- Located at root: https://niketansrane.com/robots.txt
+- Located at root: https://www.niketansrane.com/robots.txt
 
 ### 6. Project Hygiene ✅
 
