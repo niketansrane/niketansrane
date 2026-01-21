@@ -106,6 +106,21 @@ html {
   color: #fff;
 }
 
+/* View Counter */
+.view-count {
+  font-size: 12px;
+  color: var(--text-muted);
+}
+
+.view-count-label {
+  color: var(--text-muted);
+}
+
+.view-count-number {
+  color: var(--text-secondary);
+  font-weight: 500;
+}
+
 /* Base link styling */
 a {
   color: var(--link);
