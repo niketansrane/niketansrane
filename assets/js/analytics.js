@@ -10,8 +10,8 @@
 (function() {
   'use strict';
 
-  // CONFIGURATION - Update this with your Google Analytics Measurement ID
-  var GA_MEASUREMENT_ID = 'G-XXXXXXXXXX'; // Change this!
+  // CONFIGURATION - Google Analytics Measurement ID
+  var GA_MEASUREMENT_ID = 'G-CCRC9R5SEV';
 
   // Don't track if running locally
   function isLocalhost() {
