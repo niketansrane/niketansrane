@@ -157,6 +157,30 @@
     color: var(--text-muted);
 }
 
+/* Post tags */
+.post-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: var(--space-xs);
+    margin-top: var(--space-md);
+}
+
+.post-tag {
+    font-family: var(--font-mono);
+    font-size: 12px;
+    color: var(--text-secondary);
+    background-color: var(--bg-tertiary);
+    padding: 4px 10px;
+    border-radius: 12px;
+    text-decoration: none;
+    transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.post-tag:hover {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+}
+
 /* Prose content */
 .prose {
     font-family: var(--font-mono);
