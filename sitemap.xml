@@ -7,7 +7,7 @@
     <priority>1.0</priority>
   </url>
   <url>
-    <loc>https://www.niketansrane.com/about.html</loc>
+    <loc>https://www.niketansrane.com/about/</loc>
     <lastmod>2026-02-07</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.8</priority>
@@ -19,25 +19,25 @@
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement.html</loc>
+    <loc>https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/</loc>
     <lastmod>2026-01-18</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers.html</loc>
+    <loc>https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/</loc>
     <lastmod>2025-10-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.niketansrane.com/blogs/understanding-authentication-openid.html</loc>
+    <loc>https://www.niketansrane.com/blogs/understanding-authentication-openid/</loc>
     <lastmod>2025-09-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
   </url>
   <url>
-    <loc>https://www.niketansrane.com/blogs/understanding-authentication-oauth.html</loc>
+    <loc>https://www.niketansrane.com/blogs/understanding-authentication-oauth/</loc>
     <lastmod>2025-08-01</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.9</priority>
