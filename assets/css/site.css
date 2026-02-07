@@ -1,5 +1,4 @@
-/* Main site styles - imports base styles */
-@import url('base.css');
+/* Main site styles - base.css must be loaded via <link> tag before this file */
 
 /* Container and layout */
 .container{max-width:720px;margin:0 auto;padding:var(--space-lg) var(--space-md)}
@@ -37,6 +36,13 @@ h2{font-size:20px;font-weight:600;margin-bottom:var(--space-lg);color:var(--text
 
 /* Footer */
 footer{margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px solid var(--border);font-size:12px;color:var(--text-muted);text-align:center}
+
+/* 404 Error Page */
+.error-page{text-align:center;padding:var(--space-xxl) 0}
+.error-message{font-size:14px;color:var(--text-secondary);margin-top:var(--space-md);line-height:1.6}
+.error-action{margin-top:var(--space-lg)}
+.error-action a{color:var(--link);text-decoration:none;font-size:14px}
+.error-action a:hover{color:var(--accent);text-decoration:underline}
 
 /* About page */
 .experience-item{margin-bottom:var(--space-xl)}

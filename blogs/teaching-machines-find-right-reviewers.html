@@ -51,8 +51,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="../assets/css/highlight-github.min.css" data-highlight-theme>
-    <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script src="../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <main class="blog-main">
             <article class="post-content">
                 <header class="post-header">
-                    <span class="post-date">October 2025</span>
+                    <time datetime="2025-10-01" class="post-date">October 2025</time>
                     <h1 class="post-title">Teaching Machines to Find the Right Reviewers</h1>
                     <div class="post-tags">
                         <span class="post-tag">Machine Learning</span>
@@ -101,7 +101,7 @@
                 <div class="prose">
                     <p>When you're dealing with hundreds of pull requests a day, the old way of doing things breaks down pretty fast. Most large codebases which use Azure Devops for the code management depend on path-based assignment rules to decide reviewers / reviewer groups. It works, but only to an extent. As teams and repositories grow, those rules quickly go stale.</p>
 
-                    <p>More importantly, solving this proglem might seem simple on paper by introducing accountability (which quickly goes for a toss unless there is *monetary reward associated with an activity like code review) but finding right reviewers when you have hundreds of pull requets merged in a day is challenging.</p>
+                    <p>More importantly, solving this problem might seem simple on paper by introducing accountability (which quickly goes for a toss unless there is *monetary reward associated with an activity like code review) but finding right reviewers when you have hundreds of pull requests merged in a day is challenging.</p>
 
                     <p>This post walks through the problem, the ML approach, and what I learned building a data-driven alternative to configuration files.</p>
 
@@ -296,7 +296,7 @@ flowchart TB
     </div>
     <script src="../assets/js/theme.js"></script>
     <script src="../assets/js/analytics.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" crossorigin="anonymous"></script>
     <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
 </body>
 </html>

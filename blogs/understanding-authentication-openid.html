@@ -51,8 +51,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="../assets/css/highlight-github.min.css" data-highlight-theme>
-    <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script src="../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <main class="blog-main">
             <article class="post-content">
                 <header class="post-header">
-                    <span class="post-date">September 2025</span>
+                    <time datetime="2025-09-01" class="post-date">September 2025</time>
                     <h1 class="post-title">Understanding Authentication: OpenID Connect</h1>
                     <div class="post-tags">
                         <span class="post-tag">Authentication</span>
@@ -107,7 +107,7 @@
 
                     <p>In this blog we will learn how to outsource user authentication to Microsoft using OpenID Connect, which rides on the mighty OAuth2. Instead of storing credentials, we delegate the entire process to a trusted third-party (Microsoft in our case).</p>
 
-                    <p>The source code can be found here: <a href="https://github.com/niketansrane/auth101" target="_blank">niketansrane/auth101</a></p>
+                    <p>The source code can be found here: <a href="https://github.com/niketansrane/auth101" target="_blank" rel="noopener noreferrer">niketansrane/auth101</a></p>
 
                     <p>Since this has a lot of moving parts involved, let's break it down into different sequential flows which will help us understand how OpenID can be used for logging users to your webapp.</p>
 
@@ -158,7 +158,7 @@ def read_login():
 
                     <h2>Grant To Token Exchange Flow</h2>
 
-                    <p>Once the web application received the code on it's `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his emai.id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
+                    <p>Once the web application received the code on it's `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his email id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
 
                     <p>The request will look like:</p>
 

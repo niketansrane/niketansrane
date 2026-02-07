@@ -1,5 +1,4 @@
-/* Blog-specific styles - imports base styles */
-@import url('../assets/css/base.css');
+/* Blog-specific styles - base.css must be loaded via <link> tag before this file */
 
 /* Additional blog-specific spacing */
 :root {

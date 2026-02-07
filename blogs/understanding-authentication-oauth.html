@@ -51,8 +51,8 @@
     <link rel="stylesheet" href="../assets/css/base.css">
     <link rel="stylesheet" href="blog.css">
     <link rel="stylesheet" href="../assets/css/highlight-github.min.css" data-highlight-theme>
-    <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <script src="../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -88,7 +88,7 @@
         <main class="blog-main">
             <article class="post-content">
                 <header class="post-header">
-                    <span class="post-date">August 2025</span>
+                    <time datetime="2025-08-01" class="post-date">August 2025</time>
                     <h1 class="post-title">Understanding Authentication: A Simple Dive into OAuth 2.0</h1>
                     <div class="post-tags">
                         <span class="post-tag">Authentication</span>
@@ -99,7 +99,7 @@
                 </header>
                 
                 <div class="prose">
-                    <p>In this article, we'll explore how authentication works—from basic password-based login to modern, secure methods like OpenID Connect—through the lens of a simple library app. The source code can be found at <a href="https://github.com/niketansrane/auth101" target="_blank">https://github.com/niketansrane/auth101</a>.</p>
+                    <p>In this article, we'll explore how authentication works—from basic password-based login to modern, secure methods like OpenID Connect—through the lens of a simple library app. The source code can be found at <a href="https://github.com/niketansrane/auth101" target="_blank" rel="noopener noreferrer">https://github.com/niketansrane/auth101</a>.</p>
 
                     <h2>1. The library problem</h2>
 
