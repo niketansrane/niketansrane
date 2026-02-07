@@ -13,7 +13,7 @@
     <script>
       (function() {
         try {
-          var theme = localStorage.getItem('preferred-theme');
+          var theme = localStorage.getItem("preferred-theme") || "dark";
           if (theme === 'dark' || theme === 'sublime') {
             document.documentElement.setAttribute('data-theme', theme);
           }
