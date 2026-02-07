@@ -1,6 +1,6 @@
 /**
  * Theme Switcher
- * Supports: light (default), dark, sublime
+ * Supports: light, dark (default), sublime
  */
 (function() {
   'use strict';
@@ -15,13 +15,13 @@
     sublime: '<svg viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path d="M9.4 16.6L4.8 12l4.6-4.6L8 6l-6 6 6 6 1.4-1.4zm5.2 0l4.6-4.6-4.6-4.6L16 6l6 6-6 6-1.4-1.4z"/></svg>'
   };
 
-  // Get current theme from localStorage or default to 'light'
+  // Get current theme from localStorage or default to 'dark'
   function getCurrentTheme() {
     try {
       var theme = localStorage.getItem(THEME_KEY);
-      return THEMES.includes(theme) ? theme : 'light';
+      return THEMES.includes(theme) ? theme : 'dark';
     } catch(e) {
-      return 'light';
+      return 'dark';
     }
   }
 
@@ -121,9 +121,7 @@
 
     // Apply saved theme (this might already be done by inline script, but ensure buttons are synced)
     var currentTheme = getCurrentTheme();
-    if (currentTheme !== 'light') {
-      setTheme(currentTheme);
-    }
+    setTheme(currentTheme);
 
     // Inject theme switcher
     injectThemeSwitcher();
