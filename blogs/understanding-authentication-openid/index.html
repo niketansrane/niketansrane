@@ -9,7 +9,7 @@
     
     <!-- Open Graph / Facebook -->
     <meta property="og:type" content="article">
-    <meta property="og:url" content="https://www.niketansrane.com/blogs/understanding-authentication-openid.html">
+    <meta property="og:url" content="https://www.niketansrane.com/blogs/understanding-authentication-openid/">
     <meta property="og:title" content="Understanding Authentication: OpenID Connect">
     <meta property="og:description" content="Learn how to outsource user authentication to Microsoft using OpenID Connect with practical code examples.">
     <meta property="og:image" content="https://www.niketansrane.com/favicon.svg">
@@ -22,18 +22,18 @@
 
     <!-- Twitter -->
     <meta property="twitter:card" content="summary_large_image">
-    <meta property="twitter:url" content="https://www.niketansrane.com/blogs/understanding-authentication-openid.html">
+    <meta property="twitter:url" content="https://www.niketansrane.com/blogs/understanding-authentication-openid/">
     <meta property="twitter:title" content="Understanding Authentication: OpenID Connect">
     <meta property="twitter:description" content="Learn how to outsource user authentication to Microsoft using OpenID Connect with practical code examples.">
     <meta property="twitter:image" content="https://www.niketansrane.com/favicon.svg">
     <meta name="twitter:creator" content="@niketansrane">
     
     <!-- Canonical URL -->
-    <link rel="canonical" href="https://www.niketansrane.com/blogs/understanding-authentication-openid.html">
+    <link rel="canonical" href="https://www.niketansrane.com/blogs/understanding-authentication-openid/">
     
     <!-- Favicon -->
-    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
-    <link rel="alternate icon" href="../favicon.svg">
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="alternate icon" href="../../favicon.svg">
 
     <!-- Theme initialization (prevents flash of wrong theme) -->
     <script>
@@ -48,11 +48,11 @@
     </script>
 
     <title>Understanding Authentication: OpenID Connect - Niketan Rane</title>
-    <link rel="stylesheet" href="../assets/css/base.css">
-    <link rel="stylesheet" href="blog.css">
-    <link rel="stylesheet" href="../assets/css/highlight-github.min.css" data-highlight-theme>
-    <script src="../assets/js/highlight.min.js"></script>
-    <script>hljs.highlightAll();</script>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../assets/css/highlight-github.min.css" data-highlight-theme>
+    <script src="../../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
 
     <!-- JSON-LD Structured Data -->
     <script type="application/ld+json">
@@ -79,16 +79,16 @@
 <body>
     <div class="blog-wrapper">
         <header class="blog-header">
-            <a href="../index.html" class="blog-home">Niketan Rane</a>
+            <a href="../../" class="blog-home">Niketan Rane</a>
             <nav class="blog-nav">
-                <a href="../index.html">Articles</a>
+                <a href="../../">Articles</a>
             </nav>
         </header>
         
         <main class="blog-main">
             <article class="post-content">
                 <header class="post-header">
-                    <span class="post-date">September 2025</span>
+                    <time datetime="2025-09-01" class="post-date">September 2025</time>
                     <h1 class="post-title">Understanding Authentication: OpenID Connect</h1>
                     <div class="post-tags">
                         <span class="post-tag">Authentication</span>
@@ -107,7 +107,7 @@
 
                     <p>In this blog we will learn how to outsource user authentication to Microsoft using OpenID Connect, which rides on the mighty OAuth2. Instead of storing credentials, we delegate the entire process to a trusted third-party (Microsoft in our case).</p>
 
-                    <p>The source code can be found here: <a href="https://github.com/niketansrane/auth101" target="_blank">niketansrane/auth101</a></p>
+                    <p>The source code can be found here: <a href="https://github.com/niketansrane/auth101" target="_blank" rel="noopener noreferrer">niketansrane/auth101</a></p>
 
                     <p>Since this has a lot of moving parts involved, let's break it down into different sequential flows which will help us understand how OpenID can be used for logging users to your webapp.</p>
 
@@ -158,7 +158,7 @@ def read_login():
 
                     <h2>Grant To Token Exchange Flow</h2>
 
-                    <p>Once the web application received the code on it's `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his emai.id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
+                    <p>Once the web application received the code on it's `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his email id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
 
                     <p>The request will look like:</p>
 
@@ -227,7 +227,7 @@ def books(request: Request):
                 </div>
                 
                 <footer class="post-footer">
-                    <a href="../index.html" class="back-link">← Articles</a>
+                    <a href="../../" class="back-link">← Articles</a>
                 </footer>
             </article>
         </main>
@@ -236,7 +236,7 @@ def books(request: Request):
             <p>&copy; 2026 Niketan Rane</p>
         </footer>
     </div>
-    <script src="../assets/js/theme.js"></script>
-    <script src="../assets/js/analytics.js"></script>
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/analytics.js"></script>
 </body>
 </html>

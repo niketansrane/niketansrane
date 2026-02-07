@@ -8,6 +8,7 @@
 # OS files
 .DS_Store
 Thumbs.db
+nul
 
 # Editor files
 .vscode/
@@ -19,3 +20,6 @@ Thumbs.db
 
 # Logs
 *.log
+
+# Claude/AI agent config
+.claude/
