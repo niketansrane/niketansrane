@@ -21,6 +21,9 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 - [Understanding Authentication: OpenID Connect](https://www.niketansrane.com/blogs/understanding-authentication-openid.html) - Delegated authentication deep dive
 - [Understanding Authentication: OAuth 2.0](https://www.niketansrane.com/blogs/understanding-authentication-oauth.html) - From passwords to federated auth
 
+🛠️ **Projects**
+- [Netflix Ratings Overlay](https://github.com/niketansrane/movie-ratings-extension) — Chrome extension that shows IMDb & Rotten Tomatoes ratings on Netflix posters on hover. Built with Manifest V3, OMDb API, smart title matching, and local caching.
+
 🌐 **Find Me**
 - 🔗 Website: [niketansrane.com](https://www.niketansrane.com)
 - 💼 LinkedIn: [linkedin.com/in/niketanrane](https://linkedin.com/in/niketanrane)
