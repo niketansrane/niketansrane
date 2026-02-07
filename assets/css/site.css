@@ -51,7 +51,7 @@ footer{margin-top:var(--space-xl);padding-top:var(--space-lg);border-top:1px sol
 .about-intro{display:flex;align-items:center;gap:var(--space-lg);margin-bottom:var(--space-lg)}
 .about-intro-text h2{margin-bottom:var(--space-xs)}
 .about-intro-text p{margin-bottom:0}
-.headshot{width:120px;height:120px;border-radius:50%;border:3px solid var(--border);flex-shrink:0}
+.headshot{width:120px;height:120px;border-radius:50%;border:3px solid var(--border);flex-shrink:0;object-fit:cover}
 .experience-item{margin-bottom:var(--space-xl)}
 .item-header{display:flex;justify-content:space-between;align-items:baseline;margin-bottom:var(--space-sm)}
 .item-title{font-size:16px;font-weight:600;color:var(--accent)}
