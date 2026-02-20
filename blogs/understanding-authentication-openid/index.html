@@ -101,7 +101,7 @@
                 <div class="prose">
                     <p>Last time, we made users sign in with yet another password to see their borrowed books in the library.</p>
 
-                    <p>Improving on this, we'll ask a Trusted third party authenticator (Microsoft in this case) to vouch for them. This way we let offload the authentication so that we can focus on our critical business login of showing overdue books to the user.</p>
+                    <p>Improving on this, we'll ask a Trusted third party authenticator (Microsoft in this case) to vouch for them. This way we offload the authentication so that we can focus on our critical business logic of showing overdue books to the user.</p>
 
                     <p>A real world analogy will be to hire a security guard to check IDs of people before they enter the library instead of doing it yourself.</p>
 
@@ -113,15 +113,15 @@
 
                     <p>In case you do not want the descriptive post, here is a quick diagram that shows how delegated authentication (using OpenID) works.</p>
 
-                    <p>Remember that, before any of this can take place, the library (client) had to go to Authorization Server (Microsoft in this case) and register itself as a known client. As part of this process, the client has received a unique identifier and a secret which client can use to prove it's identity when it sends requests to authorization token endpoint particularly during the grant to token exchange flow.</p>
+                    <p>Remember that, before any of this can take place, the library (client) had to go to Authorization Server (Microsoft in this case) and register itself as a known client. As part of this process, the client has received a unique identifier and a secret which client can use to prove its identity when it sends requests to authorization token endpoint particularly during the grant to token exchange flow.</p>
 
                     <p>Let's start. This is the moment where our user visits the website's home page and clicks "Sign in with Microsoft".</p>
 
-                    <p>One thing I would like to clarify that it you will see the terms client and web server being used interchangeably. This is because in our case the web server is requesting some information about the user from the authority and hence acting as a client in this authorization flow.</p>
+                    <p>One thing I would like to clarify is that you will see the terms client and web server being used interchangeably. This is because in our case the web server is requesting some information about the user from the authority and hence acting as a client in this authorization flow.</p>
 
                     <h2>Authorization Grant Flow</h2>
 
-                    <p>Once the user click on "Sign in with Microsoft", the web server hosting receives a request on its `microsoftlogin` endpoint. The web server (acting as client in this case) follows the OAuth specifications and redirects the user to Authorization Server's authorization endpoint. This is allowed since in this case Microsoft(Authority) will be asking for Microsoft credentials from the user.</p>
+                    <p>Once the user clicks on "Sign in with Microsoft", the web server hosting receives a request on its `microsoftlogin` endpoint. The web server (acting as client in this case) follows the OAuth specifications and redirects the user to Authorization Server's authorization endpoint. This is allowed since in this case Microsoft(Authority) will be asking for Microsoft credentials from the user.</p>
 
                     <p>The request is crafted essentially to say "Hey, this user wants to sign in using Microsoft, can you please verify this is a legit user and once you are done verifying, send me a code at this redirect URI."</p>
 
@@ -158,7 +158,7 @@ def read_login():
 
                     <h2>Grant To Token Exchange Flow</h2>
 
-                    <p>Once the web application received the code on it's `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his email id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
+                    <p>Once the web application received the code on its `callback` endpoint, it will reach out to token endpoint of authorization server and with the authorization code and say, "The user has consented to me reading his email id and here is the proof of that (code). Also I am this particular client and here is my proof (client ID + client secret). Now please give me access to his email."</p>
 
                     <p>The request will look like:</p>
 
@@ -168,7 +168,7 @@ def read_login():
 &code=1.ARoAh...
 &redirect_uri=https://auth101.azurewebsites.net/callback</code></pre>
 
-                    <p>Note that the redirect URI in both requests should match. This is a validation on the  that the authorization server will perform before sharing the token.</p>
+                    <p>Note that the redirect URI in both requests should match. This is a validation that the authorization server will perform before sharing the token.</p>
 
                     <p>Implementation:</p>
 
@@ -195,7 +195,7 @@ def callback(code: str):
 
                     <h2>Session Setup Flow</h2>
 
-                    <p>Now that the web application has user information, it can set a cookie so that subsequent requests for the session can use the same token and need not do perform all those flows again for next X minutes.</p>
+                    <p>Now that the web application has user information, it can set a cookie so that subsequent requests for the session can use the same token and need not perform all those flows again for next X minutes.</p>
 
                     <pre><code class="language-python">....
 
