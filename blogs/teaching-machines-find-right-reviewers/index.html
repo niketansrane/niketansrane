@@ -99,9 +99,9 @@
                 </header>
                 
                 <div class="prose">
-                    <p>When you're dealing with hundreds of pull requests a day, the old way of doing things breaks down pretty fast. Most large codebases which use Azure Devops for the code management depend on path-based assignment rules to decide reviewers / reviewer groups. It works, but only to an extent. As teams and repositories grow, those rules quickly go stale.</p>
+                    <p>When you're dealing with hundreds of pull requests a day, the old way of doing things breaks down pretty fast. Most large codebases which use Azure DevOps for the code management depend on path-based assignment rules to decide reviewers / reviewer groups. It works, but only to an extent. As teams and repositories grow, those rules quickly go stale.</p>
 
-                    <p>More importantly, solving this problem might seem simple on paper by introducing accountability (which quickly goes for a toss unless there is *monetary reward associated with an activity like code review) but finding right reviewers when you have hundreds of pull requests merged in a day is challenging.</p>
+                    <p>More importantly, solving this problem might seem simple on paper by introducing accountability (which quickly goes for a toss unless there is monetary reward associated with an activity like code review) but finding the right reviewers when you have hundreds of pull requests merged in a day is challenging.</p>
 
                     <p>This post walks through the problem, the ML approach, and what I learned building a data-driven alternative to configuration files.</p>
 
@@ -109,7 +109,7 @@
 
                     <h2>The Problem</h2>
 
-                    <p>Let me explain this problem with a concrete example. Remember I am talking about Azure Devops Enterprise (not Github), so some of the terms might be new but any organization that works at scale eventually gets into this same problem.</p>
+                    <p>Let me explain this problem with a concrete example. Remember I am talking about Azure DevOps Enterprise (not Github), so some of the terms might be new but any organization that works at scale eventually gets into this same problem.</p>
 
                     <p>Here's what the enterprise started (rather stuck) with: a path-based system for assigning reviewers. You touch a file in <code>/src/messaging</code>, you get the messaging team as reviewers. Touch something in <code>/components/chat</code>, you get the chat team. Simple solution to start with.</p>
 
@@ -125,7 +125,7 @@
 
                     <h2>What If We Just... Asked the Data?</h2>
 
-                    <p>The pros of scale is that you have tremendous data lying around. In this case, the enterprise had years of pull request history just sitting there. Thousand of reviews, hidden-patterns that we just had to identify. What if instead of maintaining these rigid path-based rules, I let a machine learning model figure out who the right reviewers actually are?</p>
+                    <p>The pros of scale is that you have tremendous data lying around. In this case, the enterprise had years of pull request history just sitting there. Thousands of reviews, hidden patterns that we just had to identify. What if instead of maintaining these rigid path-based rules, I let a machine learning model figure out who the right reviewers actually are?</p>
 
                     <p>Not based on who owns a directory in a config file, but based on who's actually been doing the work.</p>
 
@@ -137,7 +137,7 @@
 
                     <p>The model looks at four main dimensions:</p>
 
-                    <p><strong>Sociality:</strong> Do you know the person who wrote this code? If you've reviewed their PRs before, there's probably a reason. Maybe you work closely together, maybe you're both experts in the same domain. That social connection matters. Over time, I also realised over time that this *indirectly correlates developers reporting to same leadership without using management chart data.</p>
+                    <p><strong>Sociality:</strong> Do you know the person who wrote this code? If you've reviewed their PRs before, there's probably a reason. Maybe you work closely together, maybe you're both experts in the same domain. That social connection matters. Over time, I also realised that this indirectly correlates with developers reporting to the same leadership without using management chart data.</p>
 
                     <p><strong>Context:</strong> Do you understand what this PR is trying to do? Not just "have you touched these files," but do you understand the broader problem space? Have you worked on related features recently?</p>
 
@@ -226,7 +226,7 @@ flowchart TB
 
                     <p>There's a natural self-reinforcing bias in reviewer recommendation systems. If you review one type of PR once, you might keep getting assigned similar PRs, which means you'd review them, which means you'd get assigned more, and suddenly you're pigeonholed.</p>
 
-                    <p>I tried to break that cycle by looking beyond just file-level interactions. The sociality introduced diversity based on who you work with, not just what files you touch. The temporal windows let your expertise profile(expertise) evolve naturally. The fact that we retrain frequently helps finding new patterns can emerge without being drowned out by old history (say new teams forming for dedicated areas).</p>
+                    <p>I tried to break that cycle by looking beyond just file-level interactions. The sociality introduced diversity based on who you work with, not just what files you touch. The temporal windows let your expertise profile evolve naturally. The fact that we retrain frequently helps ensure new patterns can emerge without being drowned out by old history (say new teams forming for dedicated areas).</p>
 
                     <p>It's not perfect but it's better than pretending we can hardcode expertise in a configuration file.</p>
 

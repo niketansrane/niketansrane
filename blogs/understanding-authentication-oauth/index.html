@@ -113,7 +113,7 @@
 
                     <p>And you have decided to build a small website to do so. For all future references, words library and website are used interchangeably.</p>
 
-                    <p>In your library, a user's digital identity could be as simple his/her name, phone number and address. Whenever someone logs in your library, they should be able to see:</p>
+                    <p>In your library, a user's digital identity could be as simple as his/her name, phone number and address. Whenever someone logs into your library, they should be able to see:</p>
                     <ul>
                         <li>all books they have borrowed</li>
                         <li>when to return them back.</li>
@@ -131,7 +131,7 @@
 
                     <p>Almost always the shared secret is what we call the password. In typical flow, a user signs up to your website using a combination of username and password. You do not store the plain password in your storage, because if you do so and your storage gets compromised, the attacker has access to passwords for all users. Instead you use a hash function to make it obscure.</p>
 
-                    <p>Once the user signs up, every time a he tries to login to the library, you check if credentials match and if yes, allow him in.</p>
+                    <p>Once the user signs up, every time he tries to login to the library, you check if credentials match and if yes, allow him in.</p>
 
                     <p>This is called <strong>Password Based Authentication</strong>.</p>
 
@@ -141,7 +141,7 @@
 
 def hash_password(password: str) -> bytes:
     """
-    Hash the plaintext password using a brypt with salt.
+    Hash the plaintext password using bcrypt with salt.
     """
     return bcrypt.hashpw(password.encode(), bcrypt.gensalt())
 
@@ -170,7 +170,7 @@ print(verify_password("idonotlovebooks", hashed_pwd)) # outputs => False</code><
 
                     <p>(There are prerequisites you will have to do with friendsstartup.com beforehand but let's skip those for now.)</p>
 
-                    <p>This is powered by the OpenID protocol. OpenID is just what the name suggest. Open + ID => Open (standard) protocol for identification.</p>
+                    <p>This is powered by the OpenID protocol. OpenID is just what the name suggests. Open + ID => Open (standard) protocol for identification.</p>
 
                     <p>So now instead of saving user name and password in your auth database, you will instead receive id information from friendsstartup.com saying that I have verified this user and his id is alias3@friendsstartup.com. You can then use this information to login the user and show his books.</p>
 
