@@ -1,7 +1,43 @@
-Hi! I'm Niketan Rane, a senior software engineer at Microsoft. I mostly work on AI-powered developer tools and ML systems that help engineers ship faster.
+# Hi, I'm Niketan 👋
 
-I helped build the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/) — an AI system that automates PR workflows in Teams — which was featured at Microsoft Build 2025. Before that, I designed an ML-based reviewer assignment system that handles 300+ PRs a day across 250+ reviewer teams. More recently, I've been building [Shanashma](https://github.com/niketansrane/shanashma), a Claude Code plugin that brings Azure DevOps into your terminal.
+I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help developers ship their products and features faster.
+If you want to talk Developer Experience, AI for developer productivity or cricket, I'm always up for a good chat.
 
-I write about what I learn: [building AI agents](https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/), [ML for code review](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/), [authentication systems](https://www.niketansrane.com/blogs/understanding-authentication-oauth/), and [developer tools](https://www.niketansrane.com/blogs/shanashma-claude-code-plugin-azure-devops/). You can find all my posts at [niketansrane.com](https://www.niketansrane.com).
+🚀 **What I Do**
+- Helped build the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/) — an AI system in Microsoft Teams that automates the entire PR lifecycle for Azure DevOps repositories. Featured at Microsoft Build 2025.
+- Designed an ML-based reviewer assignment system that handles 300+ daily PRs across 250+ reviewer teams, using historical patterns, expertise, and geographic load balancing.
+- Built [Shanashma](https://github.com/niketansrane/shanashma) — a Claude Code plugin that brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
+- Created event-driven notification systems and analytics platforms that reduced false alarms by 70% for our CI-CD workflows.
 
-My resume is [here](https://docs.google.com/document/d/1hemqPU0I-QK_bORctt4F4RR-npnS_ZOESSLOH08g0F0). If you want to talk about developer experience, AI for productivity, or cricket, feel free to reach out — [niketan.iiita@gmail.com](mailto:niketan.iiita@gmail.com) or [LinkedIn](https://linkedin.com/in/niketanrane).
+💻 **Tech Stack**
+- Python, C#, Django, FastAPI
+- Azure (Cosmos DB, OpenAI, Active Directory)
+- OAuth 2.0, OpenID Connect
+- Machine Learning (traditional ML + LLMs)
+- Event-driven architectures
+
+📝 **Recent Writing**
+- [Shanashma — A Claude Code Plugin Marketplace for Azure DevOps](https://www.niketansrane.com/blogs/shanashma-claude-code-plugin-azure-devops/) - Building a shareable plugin marketplace with persistent configuration
+- [Building a Claude Agent for Continuous Codebase Improvement](https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/) - Using AI sub-agents to incrementally improve codebases
+- [Teaching Machines to Find the Right Reviewers](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/) - Building ML-powered code review systems
+- [Understanding Authentication: OpenID Connect](https://www.niketansrane.com/blogs/understanding-authentication-openid/) - Delegated authentication deep dive
+- [Understanding Authentication: OAuth 2.0](https://www.niketansrane.com/blogs/understanding-authentication-oauth/) - From passwords to federated auth
+
+🛠️ **Projects**
+- [Shanashma](https://github.com/niketansrane/shanashma) — Claude Code plugin that brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
+- [Netflix Ratings Overlay](https://github.com/niketansrane/movie-ratings-extension) — Chrome extension that shows IMDb & Rotten Tomatoes ratings on Netflix posters on hover. Built with Manifest V3, OMDb API, smart title matching, and local caching.
+
+🌐 **Find Me**
+- 🔗 Website: [niketansrane.com](https://www.niketansrane.com)
+- 💼 LinkedIn: [linkedin.com/in/niketanrane](https://linkedin.com/in/niketanrane)
+- 🐦 Twitter: [@niketansrane](https://twitter.com/niketansrane)
+- 📧 Email: niketan.iiita@gmail.com
+- ☕ Buy Me a Coffee: [buymeacoffee.com/niketansrane](https://buymeacoffee.com/niketansrane)
+
+---
+
+### About This Repo
+
+This repository is my personal website—a minimalist, Ubuntu-inspired blog where I write about developer productivity, authentication systems, machine learning, and building tools that make engineers' lives easier.
+
+**Live at**: [niketansrane.com](https://www.niketansrane.com)
