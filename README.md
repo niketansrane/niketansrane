@@ -1,6 +1,6 @@
 # Hi, I'm Niketan 👋
 
-I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help developers ship their products and features faster.
+I'm a software engineer at Microsoft, building AI-powered developer productivity tools that help developers ship their products and features faster. My resume is [here](https://docs.google.com/document/d/1hemqPU0I-QK_bORctt4F4RR-npnS_ZOESSLOH08g0F0).
 If you want to talk Developer Experience, AI for developer productivity or cricket, I'm always up for a good chat.
 
 🚀 **What I Do**
