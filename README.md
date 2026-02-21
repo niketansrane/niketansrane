@@ -6,7 +6,7 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 🚀 **What I Do**
 - Helped build the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/) — an AI system in Microsoft Teams that automates the entire PR lifecycle for Azure DevOps repositories. Featured at Microsoft Build 2025.
 - Designed an ML-based reviewer assignment system that handles 300+ daily PRs across 250+ reviewer teams, using historical patterns, expertise, and geographic load balancing.
-- Built [Shanashma](https://github.com/niketansrane/shanashma) — a Claude Code plugin that brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
+- Built [Shanashma](https://github.com/niketansrane/shanashma) — a Claude Code plugin marketplace. Its first plugin, ado-flow, brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
 - Created event-driven notification systems and analytics platforms that reduced false alarms by 70% for our CI-CD workflows.
 
 💻 **Tech Stack**
@@ -24,7 +24,7 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 - [Understanding Authentication: OAuth 2.0](https://www.niketansrane.com/blogs/understanding-authentication-oauth/) - From passwords to federated auth
 
 🛠️ **Projects**
-- [Shanashma](https://github.com/niketansrane/shanashma) — Claude Code plugin that brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
+- [Shanashma](https://github.com/niketansrane/shanashma) — A Claude Code plugin marketplace. Ships with ado-flow, a plugin that brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
 - [Netflix Ratings Overlay](https://github.com/niketansrane/movie-ratings-extension) — Chrome extension that shows IMDb & Rotten Tomatoes ratings on Netflix posters on hover. Built with Manifest V3, OMDb API, smart title matching, and local caching.
 
 🌐 **Find Me**
