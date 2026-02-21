@@ -5,7 +5,7 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 
 🚀 **What I Do**
 - Helped build the [Microsoft Developer Agent](https://devblogs.microsoft.com/microsoft365dev/build-like-microsoft-developer-agents-in-action/) — an AI system in Microsoft Teams that automates the entire PR lifecycle for Azure DevOps repositories. Featured at Microsoft Build 2025.
-- Designed an [ML-based reviewer assignment system](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/) that serves 5,000+ developers and 20K+ pull requests across 250+ reviewer teams, using historical patterns, expertise, and geographic load balancing.
+- Designed an [ML-based reviewer assignment system](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/) that serves 5,000+ developers and 20K+ pull requests across 1,000+ reviewer teams, using historical patterns, expertise, and geographic load balancing.
 - Built [Shanashma](https://github.com/niketansrane/shanashma) — a Claude Code plugin marketplace. Its first plugin, ado-flow, brings Azure DevOps workflows (work items, PRs, pipelines) into your terminal.
 - Created event-driven notification systems and analytics platforms that reduced false alarms by 70% for our CI-CD workflows.
 
