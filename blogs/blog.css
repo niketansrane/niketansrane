@@ -71,6 +71,76 @@
     margin-bottom: var(--space-xl);
 }
 
+/* Category filter tabs */
+.category-tabs {
+    display: flex;
+    gap: var(--space-xs);
+    margin-bottom: var(--space-lg);
+}
+
+.category-tab {
+    font-family: var(--font-mono);
+    font-size: 13px;
+    color: var(--text-secondary);
+    background: none;
+    border: 1px solid var(--border);
+    border-radius: 20px;
+    padding: 6px 16px;
+    cursor: pointer;
+    transition: all 0.15s ease;
+}
+
+.category-tab:hover {
+    border-color: var(--border-strong);
+    color: var(--text-primary);
+    background-color: var(--bg-secondary);
+}
+
+.category-tab.active {
+    background-color: var(--accent);
+    color: var(--bg-primary);
+    border-color: var(--accent);
+}
+
+/* Category badge on post cards */
+.post-category-badge {
+    font-family: var(--font-mono);
+    font-size: 11px;
+    padding: 2px 8px;
+    border-radius: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.post-category-badge.technical {
+    color: var(--accent);
+    background-color: var(--bg-tertiary);
+}
+
+.post-category-badge.personal {
+    color: var(--link, var(--accent));
+    background-color: var(--bg-tertiary);
+}
+
+/* Hidden post (filtered out) */
+.post-card.hidden {
+    display: none;
+}
+
+/* Empty state when no posts match filter */
+.no-posts-message {
+    font-family: var(--font-mono);
+    font-size: 14px;
+    color: var(--text-muted);
+    text-align: center;
+    padding: var(--space-xl);
+    display: none;
+}
+
+.no-posts-message.visible {
+    display: block;
+}
+
 /* Posts list */
 .posts-list {
     display: flex;
