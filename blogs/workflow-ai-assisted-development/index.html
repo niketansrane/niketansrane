@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The workflow I've settled on for AI-assisted development—using Copilot as a sounding board, separating data from presentation, and turning workflows into reusable skills.">
+    <meta name="author" content="Niketan Rane">
+    <meta name="keywords" content="AI-assisted development, Copilot, Claude, Compound Engineering, developer workflow, ideate, brainstorm, skills, agents">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.niketansrane.com/blogs/workflow-ai-assisted-development/">
+    <meta property="og:title" content="The Workflow I've Settled On for AI-Assisted Development">
+    <meta property="og:description" content="The workflow I've settled on for AI-assisted development—using Copilot as a sounding board, separating data from presentation, and turning workflows into reusable skills.">
+    <meta property="og:image" content="https://www.niketansrane.com/assets/images/workflow-ai-assisted-development-cover.png">
+    <meta property="og:image:alt" content="Hand-drawn illustration of an AI-assisted development workflow: Ideate, Brainstorm, Plan & Break Down, Implement, Automate & Productionize.">
+    <meta property="article:published_time" content="2026-06-09">
+    <meta property="article:author" content="Niketan Rane">
+    <meta property="article:tag" content="AI">
+    <meta property="article:tag" content="Copilot">
+    <meta property="article:tag" content="Developer Workflow">
+    <meta property="article:tag" content="Compound Engineering">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.niketansrane.com/blogs/workflow-ai-assisted-development/">
+    <meta property="twitter:title" content="The Workflow I've Settled On for AI-Assisted Development">
+    <meta property="twitter:description" content="The workflow I've settled on for AI-assisted development—using Copilot as a sounding board, separating data from presentation, and turning workflows into reusable skills.">
+    <meta property="twitter:image" content="https://www.niketansrane.com/assets/images/workflow-ai-assisted-development-cover.png">
+    <meta name="twitter:creator" content="@niketansrane">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.niketansrane.com/blogs/workflow-ai-assisted-development/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="alternate icon" href="../../favicon.svg">
+
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem("preferred-theme") || "dark";
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <title>The Workflow I've Settled On for AI-Assisted Development - Niketan Rane</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../assets/css/highlight-github.min.css" data-highlight-theme>
+    <script src="../../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "The Workflow I've Settled On for AI-Assisted Development",
+        "description": "The workflow I've settled on for AI-assisted development—using Copilot as a sounding board, separating data from presentation, and turning workflows into reusable skills.",
+        "image": "https://www.niketansrane.com/assets/images/workflow-ai-assisted-development-cover.png",
+        "datePublished": "2026-06-09",
+        "author": {
+            "@type": "Person",
+            "name": "Niketan Rane",
+            "url": "https://www.niketansrane.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Niketan Rane"
+        },
+        "keywords": ["AI", "Copilot", "Developer Workflow", "Compound Engineering"]
+    }
+    </script>
+
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div class="blog-wrapper">
+        <header class="blog-header">
+            <a href="../../" class="blog-home">Niketan Rane</a>
+            <nav class="blog-nav">
+                <a href="../../">Articles</a>
+            </nav>
+        </header>
+
+        <main class="blog-main">
+            <article class="post-content">
+                <header class="post-header">
+                    <div class="post-meta"><time datetime="2026-06-09" class="post-date">June 2026</time><span class="post-reading-time">5 min read</span></div>
+                    <h1 class="post-title">The Workflow I've Settled On for AI-Assisted Development</h1>
+                    <div class="post-tags">
+                        <span class="post-tag">AI</span>
+                        <span class="post-tag">Copilot</span>
+                        <span class="post-tag">Developer Workflow</span>
+                        <span class="post-tag">Compound Engineering</span>
+                    </div>
+                </header>
+
+                <div class="prose">
+                    <img src="../../assets/images/workflow-ai-assisted-development-cover.png" alt="Hand-drawn illustration of an AI-assisted development workflow: Ideate, Brainstorm, Plan & Break Down, Implement, Automate & Productionize.">
+
+                    <p>Whenever I start a new project these days, Copilot is usually involved from day one.</p>
+
+                    <p>Like many engineers, I initially approached tools like Copilot and Claude as code generators. During those times, I was yet to see LLMs as an "engineer" and more as "IntelliSense on steroids."</p>
+
+                    <p>What I didn't expect was that the biggest productivity gains would come (at least for me) from having a sounding board to bounce ideas off of and get more viewpoints on the work I do.</p>
+
+                    <p>When I have an idea for a feature, I usually begin with a rough description of the problem and use Compound Engineering's <a href="https://github.com/EveryInc/compound-engineering-plugin/tree/main/plugins/compound-engineering/skills/ce-ideate" target="_blank" rel="noopener">Ideate skill</a> to challenge my assumptions. Most of the time, I end my prompt with, <em>"Is there a simpler way to think about the problem?"</em> Most of the time, the first version of the idea isn't the one I end up building, but the back-and-forth helps refine the problem, helps me find critical gaps in my thinking, and forces me to gather more information about the problem.</p>
+
+                    <p>I use Compound Engineering's Ideate skill for this.</p>
+
+                    <p>Once I feel I understand the problem well enough, I switch to <a href="https://github.com/EveryInc/compound-engineering-plugin/tree/main/plugins/compound-engineering/skills/ce-brainstorm" target="_blank" rel="noopener">Brainstorming</a> (another skill, Brainstorm, but this ends up eating a lot of tokens). I discuss possible approaches, design ideas, and what my short-term and long-term goals might be for implementing this feature.</p>
+
+                    <p>Once I have a plan, I tend to break the project into independent components.</p>
+
+                    <p>Recently, I was building a system to provide visibility into our code review process and identify review bottlenecks across engineering teams.</p>
+
+                    <p>Before writing any UI, I separated the problem into two parts:</p>
+
+                    <ol>
+                        <li>Generating and maintaining the data (data ingestion).</li>
+                        <li>Presenting the data (data visualization).</li>
+                    </ol>
+
+                    <p>This separation has become a recurring pattern in almost everything I build. Keeping those concerns separate gives me a lot of flexibility.</p>
+
+                    <p>I can redesign the user experience entirely without touching the underlying data pipeline. Likewise, I can improve the data processing logic without worrying about breaking the UI.</p>
+
+                    <p>Most of these systems start as a collection of small Python scripts and eventually end up being full-fledged, production-ready services (with a small amount of effort being put into productionizing these scripts via automation such as CI).</p>
+
+                    <p>Frontend design is probably where Copilot surprises me the most. I don't come from a frontend background, which means I often know what information I want to show, but not necessarily the best way to present it. Instead of asking for a specific layout, I usually ask Copilot to generate multiple mockups for the same page.</p>
+
+                    <p>The interesting part is that the model often proposes layouts I wouldn't have considered myself. Looking at multiple designs side by side forces me to think about the user experience rather than the implementation details.</p>
+
+                    <p>For the Review Insights project, this approach led to a dashboard design that was significantly better than my original idea.</p>
+
+                    <p>Here are some sample layouts I got from Copilot:</p>
+
+                    <img src="../../assets/images/design-layout-mockups.png" alt="Three side-by-side dashboard mockups for the PR-stats site — an editorial brief, an ops command console, and a friendly scoreboard — each a different aesthetic take on the same underlying data" loading="lazy">
+
+                    <img src="../../assets/images/console-layout.png" alt="A dense ops-console dashboard for PR review stats — left rail of repos, central tables of reviewer groups with bus-factor and trend columns, right rail of open actions like 'bus-factor 1' and 'cycle-time' warnings" loading="lazy">
+
+                    <img src="../../assets/images/trend-column-coloring.png" alt="Three side-by-side variants of the same reviewer-group trend column — row color from latest month, per-month band, and per-month with a bold current bar — exploring which coloring strategy tells the truth most clearly" loading="lazy">
+
+                    <p>As projects mature, I try to turn successful workflows into reusable skills and agents. For example, I have six skills responsible for data population and another focused entirely on visualization.</p>
+
+                    <p>I spend less time fighting boilerplate and more time thinking about the problem, evaluating alternatives, and refining ideas.</p>
+
+                    <p>And even though I sometimes feel scared of AI, I do like how it empowers me to think more and complements me in new areas.</p>
+                </div>
+
+                <footer class="post-footer">
+                    <a href="../../" class="back-link">&larr; Articles</a>
+                </footer>
+            </article>
+        </main>
+
+        <footer class="blog-footer">
+            <p>&copy; 2026 Niketan Rane</p>
+        </footer>
+    </div>
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/analytics.js"></script>
+</body>
+</html>
