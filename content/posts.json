@@ -1,0 +1,86 @@
+{
+  "_comment": "Single source of truth for blog posts. Order is newest-first; run `npm run build` after editing.",
+  "posts": [
+    {
+      "slug": "workflow-ai-assisted-development",
+      "path": "workflow-ai-assisted-development",
+      "title": "The Workflow I've Settled On for AI-Assisted Development",
+      "datetime": "2026-06",
+      "dateDisplay": "June 2026",
+      "lastmod": "2026-06-09",
+      "readingTime": "5 min read",
+      "category": "technical",
+      "excerpt": "Using Copilot as a sounding board, separating data from presentation, and turning successful workflows into reusable skills—how AI changed the way I think, not just how I write code.",
+      "excerptHome": "Using Compound Engineering's Ideate and Brainstorm skills as a sounding board, separating data from presentation, and turning successful workflows into reusable skills—how AI changed the way I think, not just how I write code."
+    },
+    {
+      "slug": "returning-to-myself",
+      "path": "personal/returning-to-myself",
+      "title": "Returning to Myself",
+      "datetime": "2026-04",
+      "dateDisplay": "April 2026",
+      "lastmod": "2026-04-30",
+      "readingTime": "5 min read",
+      "category": "personal",
+      "excerpt": "A visit back home after two years, rediscovering the people who shaped me, the gestures that feel bigger with age, and a sense of belonging I had almost forgotten."
+    },
+    {
+      "slug": "shanashma-claude-code-plugin-azure-devops",
+      "path": "shanashma-claude-code-plugin-azure-devops",
+      "title": "Shanashma - A Claude Code Plugin Marketplace for Azure DevOps",
+      "datetime": "2026-02",
+      "dateDisplay": "February 2026",
+      "lastmod": "2026-02-07",
+      "readingTime": "5 min read",
+      "category": "technical",
+      "excerpt": "Building a Claude Code plugin with persistent configuration to solve the multi-project Azure DevOps workflow problem, packaged as a shareable plugin marketplace."
+    },
+    {
+      "slug": "claude-agent-continuous-codebase-improvement",
+      "path": "claude-agent-continuous-codebase-improvement",
+      "title": "Building a Claude Agent for Continuous Codebase Improvement",
+      "datetime": "2026-01",
+      "dateDisplay": "January 2026",
+      "lastmod": "2026-01-18",
+      "readingTime": "7 min read",
+      "category": "technical",
+      "excerpt": "Building a Claude sub-agent workflow to continuously analyze and improve codebases with small, incremental changes—using a finder, implementer, and reviewer pattern."
+    },
+    {
+      "slug": "teaching-machines-find-right-reviewers",
+      "path": "teaching-machines-find-right-reviewers",
+      "title": "Teaching Machines to Find the Right Reviewers",
+      "datetime": "2025-10",
+      "dateDisplay": "October 2025",
+      "lastmod": "2025-10-01",
+      "readingTime": "9 min read",
+      "category": "technical",
+      "excerpt": "Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context—moving beyond static path-based rules.",
+      "excerptHome": "Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context."
+    },
+    {
+      "slug": "understanding-authentication-openid",
+      "path": "understanding-authentication-openid",
+      "title": "Understanding Authentication: OpenID Connect",
+      "datetime": "2025-09",
+      "dateDisplay": "September 2025",
+      "lastmod": "2025-09-01",
+      "readingTime": "5 min read",
+      "category": "technical",
+      "excerpt": "Learn how to outsource user authentication to Microsoft using OpenID Connect. A practical guide with code examples showing how to implement federated authentication in a FastAPI application.",
+      "excerptHome": "Learn how to outsource user authentication to Microsoft using OpenID Connect with practical code examples."
+    },
+    {
+      "slug": "understanding-authentication-oauth",
+      "path": "understanding-authentication-oauth",
+      "title": "Understanding Authentication: A Simple Dive into OAuth 2.0",
+      "datetime": "2025-08",
+      "dateDisplay": "August 2025",
+      "lastmod": "2025-08-01",
+      "readingTime": "4 min read",
+      "category": "technical",
+      "excerpt": "Explore how authentication works—from basic password-based login to modern, secure methods like OpenID Connect—through the lens of a simple library app.",
+      "excerptHome": "Explore how authentication works from basic password-based login to modern, secure methods like OpenID Connect."
+    }
+  ]
+}
