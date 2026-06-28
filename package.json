@@ -1,0 +1,12 @@
+{
+  "name": "niketansrane-site",
+  "version": "1.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Personal site & blog for Niketan Rane",
+  "scripts": {
+    "build": "node scripts/build.mjs",
+    "new-post": "node scripts/new-post.mjs",
+    "check": "node scripts/build.mjs --check"
+  }
+}

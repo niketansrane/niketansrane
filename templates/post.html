@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="{{description}}">
+    <meta name="author" content="Niketan Rane">
+    <meta name="keywords" content="{{keywords}}">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.niketansrane.com/blogs/{{path}}/">
+    <meta property="og:title" content="{{title}}">
+    <meta property="og:description" content="{{description}}">
+    <meta property="og:image" content="https://www.niketansrane.com/assets/images/og-image.png">
+    <meta property="article:published_time" content="{{publishedDate}}">
+    <meta property="article:author" content="Niketan Rane">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary_large_image">
+    <meta property="twitter:url" content="https://www.niketansrane.com/blogs/{{path}}/">
+    <meta property="twitter:title" content="{{title}}">
+    <meta property="twitter:description" content="{{description}}">
+    <meta property="twitter:image" content="https://www.niketansrane.com/assets/images/og-image.png">
+    <meta name="twitter:creator" content="@niketansrane">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.niketansrane.com/blogs/{{path}}/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="{{rootRel}}favicon.svg">
+    <link rel="alternate icon" href="{{rootRel}}favicon.svg">
+
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem("preferred-theme") || "dark";
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <title>{{title}} - Niketan Rane</title>
+    <link rel="stylesheet" href="{{rootRel}}assets/css/base.css">
+    <link rel="stylesheet" href="{{blogsRel}}blog.css">
+    <link rel="stylesheet" href="{{rootRel}}assets/css/highlight-github.min.css" data-highlight-theme>
+    <script src="{{rootRel}}assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "Article",
+        "headline": "{{title}}",
+        "description": "{{description}}",
+        "image": "https://www.niketansrane.com/assets/images/og-image.png",
+        "datePublished": "{{publishedDate}}",
+        "author": {
+            "@type": "Person",
+            "name": "Niketan Rane",
+            "url": "https://www.niketansrane.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Niketan Rane"
+        }
+    }
+    </script>
+
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <div class="blog-wrapper">
+        <header class="blog-header">
+            <a href="{{rootRel}}" class="blog-home">Niketan Rane</a>
+            <nav class="blog-nav">
+                <a href="{{rootRel}}">Home</a>
+                <a href="{{blogsRel}}">Articles</a>
+            </nav>
+        </header>
+
+        <main class="blog-main">
+            <article class="post-content">
+                <header class="post-header">
+                    <div class="post-meta">
+                        <time datetime="{{datetime}}" class="post-date">{{dateDisplay}}</time>
+                        <span class="post-reading-time">{{readingTime}}</span>
+                    </div>
+                    <h1 class="post-title">{{title}}</h1>
+                </header>
+
+                <div class="prose">
+                    <p>Start writing your post here.</p>
+                </div>
+
+                <footer class="post-footer">
+                    <a href="{{rootRel}}" class="back-link">&larr; Articles</a>
+                </footer>
+            </article>
+        </main>
+
+        <footer class="blog-footer">
+            <p>&copy; 2026 Niketan Rane</p>
+        </footer>
+    </div>
+    <script src="{{rootRel}}assets/js/theme.js"></script>
+    <script src="{{rootRel}}assets/js/analytics.js"></script>
+</body>
+</html>
