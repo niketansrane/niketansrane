@@ -13,7 +13,7 @@ Load this skill whenever the user asks to:
 
 - "open a PR" / "create a pull request"
 - "ship this" / "ship it"
-- "deploy" — on this repo, deploy = **merge to `main`**. The site is a static HTML repo deployed by Vercel from the repo root (`vercel.json` has `outputDirectory: "."`). There is no build step; merging `main` is the deploy.
+- "deploy" — on this repo, deploy = **merge to `main`**. The site is a static HTML repo deployed by Vercel from the repo root (`vercel.json` has `outputDirectory: "."`). There is a tiny `npm run build` step that regenerates listing blocks (home, blogs index, sitemap, feed, README) from `content/posts.json`, but Vercel does not run it — the generated files are committed. Merging `main` is the deploy.
 
 If the request is on any other repo, this skill does not apply.
 
@@ -23,7 +23,9 @@ Before touching git:
 
 - [ ] `git status` — working tree changes match the intended scope, nothing stray staged.
 - [ ] `git --no-pager diff --stat` — file/line counts look sane for what was requested.
-- [ ] **Lints / builds**: this repo has none today. Do **not** invent `npm run lint`, `npm test`, or similar — `package.json` has no such scripts. If `scripts/` ever grows a check, run it; otherwise skip this step.
+- [ ] **If you added a new blog post**: edit `content/posts.json` (newest-first) and run `npm run build` — **don't** hand-edit `blogs/index.html`, `index.html`, `sitemap.xml`, `feed.xml`, or `README.md`. Those are generated between `<!-- POSTS:START id="…" -->` / `<!-- POSTS:END -->` markers from `posts.json`. CI runs `npm run check` (which is `node scripts/build.mjs --check`) and will fail the PR if any listing is out of date. The build also auto-generates the homepage card, sitemap entry, RSS item, and README link — saves you four manual edits.
+- [ ] **Run `npm run check` locally before pushing** — fast, no network, catches the listings-out-of-date failure mode above. Skip only if the diff genuinely doesn't touch `content/posts.json` or any post page.
+- [ ] **Other lints / builds**: there are no other CI checks today (no lint, no test). Do **not** invent `npm run lint`, `npm test`, or similar — `package.json` only defines `build` and `check`.
 - [ ] **Referenced static assets exist on disk.** If you added or changed an HTML page, grep its `src=`, `href=`, and `og:image` values and confirm each file exists. Real example: the 404 work referenced `assets/images/og-image.png`, which did not exist — would have shipped a broken OG card. One-liner:
   ```pwsh
   Select-String -Path "<file>.html" -Pattern 'src="([^"]+)"|href="([^"]+)"|content="(/?assets/[^"]+)"' -AllMatches |
