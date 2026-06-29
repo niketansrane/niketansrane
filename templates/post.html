@@ -54,7 +54,11 @@
     <script type="application/ld+json">
     {
         "@context": "https://schema.org",
-        "@type": "Article",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.niketansrane.com/blogs/{{path}}/"
+        },
         "headline": "{{title}}",
         "description": "{{description}}",
         "image": "https://www.niketansrane.com/assets/images/og-image.png",
