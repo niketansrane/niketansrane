@@ -1,0 +1,23 @@
+name: check
+
+on:
+  pull_request:
+    branches: [main]
+  push:
+    branches: [main]
+
+jobs:
+  build-check:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+
+      # No dependencies to install — build scripts use only Node built-ins.
+      # `npm run check` runs the build in dry-run mode and exits non-zero if
+      # any generated listing (home, blogs index, sitemap, README) is stale.
+      - name: Verify generated listings are up to date
+        run: npm run check
