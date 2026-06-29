@@ -2,6 +2,17 @@
   "_comment": "Single source of truth for blog posts. Order is newest-first; run `npm run build` after editing.",
   "posts": [
     {
+      "slug": "understanding-2-and-1-bash-redirection",
+      "path": "understanding-2-and-1-bash-redirection",
+      "title": "Understanding 2>&1 in 3 Minutes",
+      "datetime": "2026-06",
+      "dateDisplay": "June 2026",
+      "lastmod": "2026-06-29",
+      "readingTime": "3 min read",
+      "category": "technical",
+      "excerpt": "Breaking down what command > output.log 2>&1 actually means—file descriptors, stdout vs stderr, and useful patterns like splitting streams and /dev/null."
+    },
+    {
       "slug": "workflow-ai-assisted-development",
       "path": "workflow-ai-assisted-development",
       "title": "The Workflow I've Settled On for AI-Assisted Development",

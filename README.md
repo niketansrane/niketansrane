@@ -18,11 +18,11 @@ If you want to talk Developer Experience, AI for developer productivity or crick
 
 📝 **Recent Writing**
 <!-- POSTS:START id="recent-writing" -->
+- [Understanding 2>&1 in 3 Minutes](https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/) - Breaking down what command > output.log 2>&1 actually means—file descriptors, stdout vs stderr, and useful patterns like splitting streams and /dev/null
 - [The Workflow I've Settled On for AI-Assisted Development](https://www.niketansrane.com/blogs/workflow-ai-assisted-development/) - Using Copilot as a sounding board, separating data from presentation, and turning successful workflows into reusable skills—how AI changed the way I think, not just how I write code
 - [Returning to Myself](https://www.niketansrane.com/blogs/personal/returning-to-myself/) - A visit back home after two years, rediscovering the people who shaped me, the gestures that feel bigger with age, and a sense of belonging I had almost forgotten
 - [Shanashma - A Claude Code Plugin Marketplace for Azure DevOps](https://www.niketansrane.com/blogs/shanashma-claude-code-plugin-azure-devops/) - Building a Claude Code plugin with persistent configuration to solve the multi-project Azure DevOps workflow problem, packaged as a shareable plugin marketplace
 - [Building a Claude Agent for Continuous Codebase Improvement](https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/) - Building a Claude sub-agent workflow to continuously analyze and improve codebases with small, incremental changes—using a finder, implementer, and reviewer pattern
-- [Teaching Machines to Find the Right Reviewers](https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/) - Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context—moving beyond static path-based rules
 <!-- POSTS:END id="recent-writing" -->
 
 🛠️ **Projects**

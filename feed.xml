@@ -7,9 +7,16 @@
     <description>Writing on developer productivity, authentication, machine learning, and building tools that make engineers' lives easier.</description>
     <language>en-us</language>
     <!-- POSTS:START id="feed-lastbuild" -->
-    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <lastBuildDate>Mon, 29 Jun 2026 00:00:00 +0000</lastBuildDate>
     <!-- POSTS:END id="feed-lastbuild" -->
     <!-- POSTS:START id="feed-items" -->
+    <item>
+      <title>Understanding 2&gt;&amp;1 in 3 Minutes</title>
+      <link>https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[Breaking down what command > output.log 2>&1 actually means—file descriptors, stdout vs stderr, and useful patterns like splitting streams and /dev/null.]]></description>
+    </item>
     <item>
       <title>The Workflow I've Settled On for AI-Assisted Development</title>
       <link>https://www.niketansrane.com/blogs/workflow-ai-assisted-development/</link>
