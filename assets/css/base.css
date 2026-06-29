@@ -9,11 +9,12 @@
   --bg-tertiary: #f0f0f0;
   --text-primary: #1a1a1a;
   --text-secondary: #4a4a4a;
-  --text-muted: #888;
+  --text-muted: #717171;
   --border: #e0e0e0;
   --border-strong: #c0c0c0;
-  --accent: #E95420; /* Ubuntu orange */
-  --link: #E95420;
+  --accent: #E95420; /* Ubuntu orange - decorative use only (3.65:1 on white) */
+  --accent-strong: #B84217; /* Darker orange for text/focus/active states - 5.48:1 on white */
+  --link: #B84217;
 
   /* Icon colors */
   --icon-github: #000;
@@ -41,10 +42,11 @@
   --bg-tertiary: #2d2d2d;
   --text-primary: #e0e0e0;
   --text-secondary: #a0a0a0;
-  --text-muted: #666;
+  --text-muted: #9a9a9a;
   --border: #3a3a3a;
   --border-strong: #4a4a4a;
-  --accent: #E95420;
+  --accent: #E95420; /* 4.77:1 on dark bg - passes AA */
+  --accent-strong: #FF6B35; /* 6.14:1 on dark bg */
   --link: #FF6B35;
   --icon-github: #e0e0e0;
   --icon-linkedin: #5BA0D0;
@@ -59,11 +61,12 @@
   --bg-tertiary: #49483e;
   --text-primary: #f8f8f2;
   --text-secondary: #a6a6a6;
-  --text-muted: #75715e;
+  --text-muted: #a39e87;
   --border: #49483e;
   --border-strong: #5a584e;
-  --accent: #f92672; /* Monokai pink */
-  --link: #66d9ef; /* Monokai cyan */
+  --accent: #f92672; /* Monokai pink - decorative use (3.93:1 on bg) */
+  --accent-strong: #ff79c6; /* Lighter pink for text/focus/active states - 6.23:1 on bg */
+  --link: #66d9ef; /* Monokai cyan - 9.01:1 on bg */
   --icon-github: #f8f8f2;
   --icon-linkedin: #66d9ef;
   --icon-twitter: #f8f8f2;
@@ -119,8 +122,26 @@ a:hover {
 /* Focus styles for keyboard accessibility */
 a:focus-visible,
 button:focus-visible {
-  outline: 2px solid var(--accent);
+  outline: 2px solid var(--accent-strong);
   outline-offset: 2px;
+}
+
+/* Skip-to-content link - visible on keyboard focus */
+.skip-link {
+  position: absolute;
+  top: 0;
+  left: 0;
+  padding: 8px 16px;
+  background: var(--bg-primary);
+  color: var(--text-primary);
+  border: 2px solid var(--accent-strong);
+  z-index: 1000;
+  transform: translateY(-100%);
+  transition: transform 0.15s ease;
+}
+.skip-link:focus {
+  transform: translateY(0);
+  outline: none;
 }
 
 /* Reduced motion preference */
