@@ -1,0 +1,234 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="A 3-minute walkthrough of what 2>&1 actually means in bash. File descriptors, stdout vs stderr, the left-to-right gotcha, and useful patterns like /dev/null.">
+    <meta name="author" content="Niketan Rane">
+    <meta name="keywords" content="bash, shell, redirection, stdout, stderr, 2>&1, file descriptors, linux, command line">
+
+    <!-- Open Graph / Facebook -->
+    <meta property="og:type" content="article">
+    <meta property="og:url" content="https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/">
+    <meta property="og:title" content="Understanding 2>&1 in 3 Minutes">
+    <meta property="og:description" content="A 3-minute walkthrough of what 2>&1 actually means in bash. File descriptors, stdout vs stderr, the left-to-right gotcha, and useful patterns like /dev/null.">
+    <meta property="og:image" content="https://www.niketansrane.com/favicon.svg">
+    <meta property="article:published_time" content="2026-06-29">
+    <meta property="article:author" content="Niketan Rane">
+    <meta property="article:tag" content="Bash">
+    <meta property="article:tag" content="Shell">
+    <meta property="article:tag" content="Linux">
+    <meta property="article:tag" content="Command Line">
+
+    <!-- Twitter -->
+    <meta property="twitter:card" content="summary">
+    <meta property="twitter:url" content="https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/">
+    <meta property="twitter:title" content="Understanding 2>&1 in 3 Minutes">
+    <meta property="twitter:description" content="A 3-minute walkthrough of what 2>&1 actually means in bash. File descriptors, stdout vs stderr, the left-to-right gotcha, and useful patterns like /dev/null.">
+    <meta property="twitter:image" content="https://www.niketansrane.com/favicon.svg">
+    <meta name="twitter:creator" content="@niketansrane">
+
+    <!-- Canonical URL -->
+    <link rel="canonical" href="https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/svg+xml" href="../../favicon.svg">
+    <link rel="alternate icon" href="../../favicon.svg">
+
+    <!-- Theme initialization (prevents flash of wrong theme) -->
+    <script>
+      (function() {
+        try {
+          var theme = localStorage.getItem("preferred-theme") || "dark";
+          if (theme === 'dark' || theme === 'sublime') {
+            document.documentElement.setAttribute('data-theme', theme);
+          }
+        } catch(e) {}
+      })();
+    </script>
+
+    <title>Understanding 2&gt;&amp;1 in 3 Minutes - Niketan Rane</title>
+    <link rel="stylesheet" href="../../assets/css/base.css">
+    <link rel="stylesheet" href="../blog.css">
+    <link rel="stylesheet" href="../../assets/css/highlight-github.min.css" data-highlight-theme>
+    <script src="../../assets/js/highlight.min.js" defer></script>
+    <script defer>document.addEventListener("DOMContentLoaded", function() { hljs.highlightAll(); });</script>
+
+    <!-- JSON-LD Structured Data -->
+    <script type="application/ld+json">
+    {
+        "@context": "https://schema.org",
+        "@type": "BlogPosting",
+        "mainEntityOfPage": {
+            "@type": "WebPage",
+            "@id": "https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/"
+        },
+        "headline": "Understanding 2>&1 in 3 Minutes",
+        "description": "A 3-minute walkthrough of what 2>&1 actually means in bash. File descriptors, stdout vs stderr, the left-to-right gotcha, and useful patterns like /dev/null.",
+        "image": "https://www.niketansrane.com/favicon.svg",
+        "datePublished": "2026-06-29",
+        "author": {
+            "@type": "Person",
+            "name": "Niketan Rane",
+            "url": "https://www.niketansrane.com"
+        },
+        "publisher": {
+            "@type": "Person",
+            "name": "Niketan Rane"
+        },
+        "keywords": ["Bash", "Shell", "Linux", "Command Line", "Redirection"]
+    }
+    </script>
+
+    <!-- Vercel Web Analytics -->
+    <script>
+      window.va = window.va || function () { (window.vaq = window.vaq || []).push(arguments); };
+    </script>
+    <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<body>
+    <a href="#main-content" class="skip-link">Skip to main content</a>
+    <div class="blog-wrapper">
+        <header class="blog-header">
+            <a href="../../" class="blog-home">Niketan Rane</a>
+            <nav class="blog-nav">
+                <a href="../../">Articles</a>
+            </nav>
+        </header>
+
+        <main id="main-content" class="blog-main">
+            <article class="post-content">
+                <header class="post-header">
+                    <div class="post-meta"><time datetime="2026-06-29" class="post-date">June 2026</time><span class="post-reading-time">3 min read</span></div>
+                    <h1 class="post-title">Understanding <code>2&gt;&amp;1</code> in 3 Minutes</h1>
+                    <div class="post-tags">
+                        <span class="post-tag">Bash</span>
+                        <span class="post-tag">Shell</span>
+                        <span class="post-tag">Linux</span>
+                        <span class="post-tag">Command Line</span>
+                    </div>
+                </header>
+
+                <div class="prose">
+                    <blockquote>This article was written with LLM assistance, but enough thought was put into place while writing it.</blockquote>
+
+                    <p>Every now and then something fails inside the Copilot CLI (or any other agent harness, really), and the fix-it instructions always look something like:</p>
+
+                    <pre><code class="language-bash">command &gt; output.log 2&gt;&amp;1</code></pre>
+
+                    <p>I've copied that around for months without really knowing what it meant. I knew it sent the outputs somewhere for the agent to debug. I knew the <code>2&gt;&amp;1</code> came into picture only in case something went wrong. Today, while staring at yet another debug-log instruction, I finally sat down to understand it and it is much simpler than it looks.</p>
+
+                    <h2>Every program has three standard streams</h2>
+
+                    <p>Before any of the syntax makes sense, you have to know about these three:</p>
+
+                    <table style="border-collapse: collapse; margin: 1em 0;">
+                        <thead>
+                            <tr>
+                                <th style="text-align: left; padding: 8px 16px; border-bottom: 2px solid currentColor;">File Descriptor</th>
+                                <th style="text-align: left; padding: 8px 16px; border-bottom: 2px solid currentColor;">Name</th>
+                                <th style="text-align: left; padding: 8px 16px; border-bottom: 2px solid currentColor;">Purpose</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);"><code>0</code></td>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);">stdin</td>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);">Input</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);"><code>1</code></td>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);">stdout</td>
+                                <td style="padding: 8px 16px; border-bottom: 1px solid rgba(127,127,127,0.3);">Normal output</td>
+                            </tr>
+                            <tr>
+                                <td style="padding: 8px 16px;"><code>2</code></td>
+                                <td style="padding: 8px 16px;">stderr</td>
+                                <td style="padding: 8px 16px;">Error output</td>
+                            </tr>
+                        </tbody>
+                    </table>
+
+                    <p>By default, both <code>stdout</code> and <code>stderr</code> end up printed to your terminal, which is why we don't usually think about them as separate things. Shell treats each stream as file to read/write and map them to numbers. Redirection is really just the shell rewiring which &ldquo;file&rdquo; each descriptor points at before your program runs.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    T[Terminal]
+    T -->|"0 (stdin)"| P[Program]
+    P -->|"1 (stdout)"| T
+    P -->|"2 (stderr)"| T
+                    </pre>
+
+                    <h2><code>&gt;</code> is just shorthand for <code>1&gt;</code></h2>
+
+                    <p>These two commands do exactly the same thing:</p>
+
+                    <pre><code class="language-bash">command &gt; output.txt</code></pre>
+                    <pre><code class="language-bash">command 1&gt; output.txt</code></pre>
+
+                    <p>The shell assumes you meant file descriptor <code>1</code> (stdout) if you don't say otherwise.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    P[Program]
+    O["stdout (1)"] --> F[output.txt]
+    E["stderr (2)"] --> T[Terminal]
+                    </pre>
+
+                    <p>Notice that stderr is still going to the terminal. The <code>&gt;</code> only redirected stdout.</p>
+
+                    <h2>So what does <code>2&gt;&amp;1</code> actually mean?</h2>
+
+                    <pre><code>2&gt;     Redirect stderr
+&amp;1     ...to wherever stdout is currently going</code></pre>
+
+                    <p>So <code>2&gt;&amp;1</code> doesn't reference a file at all. It just says: <strong>Make stderr follow stdout.</strong></p>
+
+                    <p>When you put it all together:</p>
+
+                    <pre><code class="language-bash">command &gt; output.txt 2&gt;&amp;1</code></pre>
+
+                    <p>stdout gets pointed at <code>output.txt</code>, and then stderr is told to go to the same place stdout is pointing to. Both end up in the file.</p>
+
+                    <pre class="mermaid">
+flowchart LR
+    P[Program]
+    O["stdout (1)"] --> F[output.txt]
+    E["stderr (2)"] -. "follow stdout" .-> F
+                    </pre>
+
+                    <h2>What if I want errors in their own file?</h2>
+
+                    <p>This sends normal output to one file and errors to another:</p>
+
+                    <pre><code class="language-bash">command 1&gt; output.txt 2&gt; errors.txt</code></pre>
+
+                    <h2>And if you don't care about the output at all</h2>
+
+                    <p>Linux has a special file called <code>/dev/null</code> that throws away anything written to it. Combine it with what you already know and you get the classic &ldquo;shut up completely&rdquo; command:</p>
+
+                    <pre><code class="language-bash">command &gt; /dev/null 2&gt;&amp;1</code></pre>
+
+                    <p>stdout goes into the void, and stderr follows it into the void. Useful for cron jobs, background tasks, and any command whose output you genuinely never want to see.</p>
+
+                    <h2>That's it</h2>
+
+                    <p>Three minutes of attention saved me from another year of copy-pasting (or nowadays supervising) something I didn't understand. Hopefully it does the same for you.</p>
+                </div>
+
+                <footer class="post-footer">
+                    <a href="../../" class="back-link">&larr; Articles</a>
+                </footer>
+            </article>
+        </main>
+
+        <footer class="blog-footer">
+            <p>&copy; 2026 Niketan Rane</p>
+        </footer>
+    </div>
+    <script src="../../assets/js/theme.js"></script>
+    <script src="../../assets/js/analytics.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.min.js" crossorigin="anonymous"></script>
+    <script>mermaid.initialize({ startOnLoad: true, theme: 'neutral' });</script>
+</body>
+</html>

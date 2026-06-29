@@ -453,3 +453,7 @@
         margin-left: 0;
     }
 }
+
+.prose table { border-collapse: collapse; margin: var(--space-md) 0; }
+.prose th, .prose td { padding: 8px 16px; text-align: left; border-bottom: 1px solid rgba(127,127,127,0.3); }
+.prose th { border-bottom-width: 2px; }
