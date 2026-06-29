@@ -110,6 +110,38 @@ function renderSitemapEntries(posts, indent) {
   ].join("\n")).join("\n");
 }
 
+// RFC-822 date from posts.json `datetime` (YYYY-MM or YYYY-MM-DD).
+// Anchors month-only dates to day 1 at 00:00 UTC for stable output.
+function toRfc822(datetime) {
+  const iso = /^\d{4}-\d{2}$/.test(datetime) ? `${datetime}-01` : datetime;
+  const d = new Date(`${iso}T00:00:00Z`);
+  return d.toUTCString().replace("GMT", "+0000");
+}
+
+function renderFeedItems(posts, indent) {
+  const pad = " ".repeat(indent);
+  return posts.map((p) => {
+    const url = `https://www.niketansrane.com/blogs/${p.path}/`;
+    return [
+      `${pad}<item>`,
+      `${pad}  <title>${escapeHtml(p.title)}</title>`,
+      `${pad}  <link>${url}</link>`,
+      `${pad}  <guid isPermaLink="true">${url}</guid>`,
+      `${pad}  <pubDate>${toRfc822(p.datetime)}</pubDate>`,
+      `${pad}  <description><![CDATA[${p.excerpt}]]></description>`,
+      `${pad}</item>`,
+    ].join("\n");
+  }).join("\n");
+}
+
+function renderFeedLastBuild(posts, indent) {
+  const pad = " ".repeat(indent);
+  // Use the newest post's lastmod as the channel's lastBuildDate so output
+  // is deterministic — running the build twice produces byte-identical feed.xml.
+  const newest = posts.reduce((acc, p) => (p.lastmod > acc ? p.lastmod : acc), posts[0].lastmod);
+  return `${pad}<lastBuildDate>${toRfc822(newest)}</lastBuildDate>`;
+}
+
 function renderReadmeList(posts) {
   return posts.slice(0, 5).map((p) => {
     const url = `https://www.niketansrane.com/blogs/${p.path}/`;
@@ -165,14 +197,19 @@ async function main() {
   const homeSrc = await readFile(resolve(ROOT, "index.html"), "utf8");
   const blogsSrc = await readFile(resolve(ROOT, "blogs/index.html"), "utf8");
   const sitemapSrc = await readFile(resolve(ROOT, "sitemap.xml"), "utf8");
+  const feedSrc = await readFile(resolve(ROOT, "feed.xml"), "utf8");
 
   const homeIndent = getIndent(homeSrc, "home-articles");
   const blogsIndent = getIndent(blogsSrc, "post-cards");
   const sitemapIndent = getIndent(sitemapSrc, "post-urls");
+  const feedItemsIndent = getIndent(feedSrc, "feed-items");
+  const feedLastBuildIndent = getIndent(feedSrc, "feed-lastbuild");
 
   const homeCards = posts.map((p) => renderHomeCard(p, homeIndent)).join("\n\n");
   const blogsCards = posts.map((p) => renderBlogsCard(p, blogsIndent)).join("\n\n");
   const sitemapEntries = renderSitemapEntries(posts, sitemapIndent);
+  const feedItems = renderFeedItems(posts, feedItemsIndent);
+  const feedLastBuild = renderFeedLastBuild(posts, feedLastBuildIndent);
   const readmeList = renderReadmeList(posts);
 
   let anyChanged = false;
@@ -184,6 +221,10 @@ async function main() {
   ])) || anyChanged;
   anyChanged = (await processFile("sitemap.xml", [
     { id: "post-urls", content: sitemapEntries },
+  ])) || anyChanged;
+  anyChanged = (await processFile("feed.xml", [
+    { id: "feed-lastbuild", content: feedLastBuild },
+    { id: "feed-items", content: feedItems },
   ])) || anyChanged;
   anyChanged = (await processFile("README.md", [
     { id: "recent-writing", content: readmeList },

@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Niketan Rane</title>
+    <link>https://www.niketansrane.com/</link>
+    <atom:link href="https://www.niketansrane.com/feed.xml" rel="self" type="application/rss+xml" />
+    <description>Writing on developer productivity, authentication, machine learning, and building tools that make engineers' lives easier.</description>
+    <language>en-us</language>
+    <!-- POSTS:START id="feed-lastbuild" -->
+    <lastBuildDate>Tue, 09 Jun 2026 00:00:00 +0000</lastBuildDate>
+    <!-- POSTS:END id="feed-lastbuild" -->
+    <!-- POSTS:START id="feed-items" -->
+    <item>
+      <title>The Workflow I've Settled On for AI-Assisted Development</title>
+      <link>https://www.niketansrane.com/blogs/workflow-ai-assisted-development/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/workflow-ai-assisted-development/</guid>
+      <pubDate>Mon, 01 Jun 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[Using Copilot as a sounding board, separating data from presentation, and turning successful workflows into reusable skills—how AI changed the way I think, not just how I write code.]]></description>
+    </item>
+    <item>
+      <title>Returning to Myself</title>
+      <link>https://www.niketansrane.com/blogs/personal/returning-to-myself/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/personal/returning-to-myself/</guid>
+      <pubDate>Wed, 01 Apr 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[A visit back home after two years, rediscovering the people who shaped me, the gestures that feel bigger with age, and a sense of belonging I had almost forgotten.]]></description>
+    </item>
+    <item>
+      <title>Shanashma - A Claude Code Plugin Marketplace for Azure DevOps</title>
+      <link>https://www.niketansrane.com/blogs/shanashma-claude-code-plugin-azure-devops/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/shanashma-claude-code-plugin-azure-devops/</guid>
+      <pubDate>Sun, 01 Feb 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[Building a Claude Code plugin with persistent configuration to solve the multi-project Azure DevOps workflow problem, packaged as a shareable plugin marketplace.]]></description>
+    </item>
+    <item>
+      <title>Building a Claude Agent for Continuous Codebase Improvement</title>
+      <link>https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/claude-agent-continuous-codebase-improvement/</guid>
+      <pubDate>Thu, 01 Jan 2026 00:00:00 +0000</pubDate>
+      <description><![CDATA[Building a Claude sub-agent workflow to continuously analyze and improve codebases with small, incremental changes—using a finder, implementer, and reviewer pattern.]]></description>
+    </item>
+    <item>
+      <title>Teaching Machines to Find the Right Reviewers</title>
+      <link>https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/teaching-machines-find-right-reviewers/</guid>
+      <pubDate>Wed, 01 Oct 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[Building a machine learning recommendation system to intelligently assign code reviewers based on historical patterns, expertise, and context—moving beyond static path-based rules.]]></description>
+    </item>
+    <item>
+      <title>Understanding Authentication: OpenID Connect</title>
+      <link>https://www.niketansrane.com/blogs/understanding-authentication-openid/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/understanding-authentication-openid/</guid>
+      <pubDate>Mon, 01 Sep 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[Learn how to outsource user authentication to Microsoft using OpenID Connect. A practical guide with code examples showing how to implement federated authentication in a FastAPI application.]]></description>
+    </item>
+    <item>
+      <title>Understanding Authentication: A Simple Dive into OAuth 2.0</title>
+      <link>https://www.niketansrane.com/blogs/understanding-authentication-oauth/</link>
+      <guid isPermaLink="true">https://www.niketansrane.com/blogs/understanding-authentication-oauth/</guid>
+      <pubDate>Fri, 01 Aug 2025 00:00:00 +0000</pubDate>
+      <description><![CDATA[Explore how authentication works—from basic password-based login to modern, secure methods like OpenID Connect—through the lens of a simple library app.]]></description>
+    </item>
+    <!-- POSTS:END id="feed-items" -->
+  </channel>
+</rss>

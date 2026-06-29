@@ -46,7 +46,7 @@ This repository is my personal website—a minimalist, Ubuntu-inspired blog wher
 
 ### Authoring a new post
 
-`content/posts.json` is the single source of truth for the post list. The home page, blogs index, sitemap, and README "Recent Writing" section are regenerated from it between `<!-- POSTS:START -->` / `<!-- POSTS:END -->` markers — never edit those listings by hand.
+`content/posts.json` is the single source of truth for the post list. The home page, blogs index, sitemap, RSS feed (`feed.xml`), and README "Recent Writing" section are regenerated from it between `<!-- POSTS:START -->` / `<!-- POSTS:END -->` markers — never edit those listings by hand.
 
 ```sh
 # Scaffold a new post (creates blogs/<slug>/index.html + posts.json entry, then builds)
