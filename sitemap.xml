@@ -20,6 +20,12 @@
   </url>
   <!-- POSTS:START id="post-urls" -->
   <url>
+    <loc>https://www.niketansrane.com/blogs/understanding-2-and-1-bash-redirection/</loc>
+    <lastmod>2026-06-29</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.9</priority>
+  </url>
+  <url>
     <loc>https://www.niketansrane.com/blogs/workflow-ai-assisted-development/</loc>
     <lastmod>2026-06-09</lastmod>
     <changefreq>monthly</changefreq>
